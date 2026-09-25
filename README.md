@@ -40,7 +40,21 @@ named `<N>月newsletter`. The edition made at the end of month M uses the **M+1*
 
 ## 1. Every month — run it in Claude
 
-Start a **new** conversation in Claude Desktop with the Claude in Chrome connector ticked for that chat, then:
+### Before you start (5-minute checklist)
+
+1. Open **Chrome** (the profile where the Claude extension is installed). Leave it open for the whole run —
+   Claude opens its own "Claude" tab group inside it.
+2. In that Chrome, make sure you are **logged in to https://grok.com/imagine** (banners) and, if you want
+   layout reviews, **https://chatgpt.com** (ChatGPT). Claude cannot log in for you and will stop at any
+   login page or CAPTCHA.
+3. Have the mascot reference images at hand (`skill/assets/mascots/` or your own copies). During the
+   banner stage Claude will ask you to upload them in Grok's "+" → Uploads panel; it cannot upload files
+   from its own environment.
+4. Open **Claude Desktop**, start a **new** conversation, and tick **Claude in Chrome** in the connectors
+   menu of that chat (it is off by default in every new chat).
+5. Know the month's **theme** and which banners **you** own this month (others come from colleagues).
+
+Then paste:
 
 ```
 用 data-infra-newsletter skill 做 <N> 月的 newsletter。
@@ -59,11 +73,20 @@ Claude then walks through four checkpoints; you answer each one before it contin
    invents; ≤ 300 words/chars; one main sentence + one background sentence per feature;
    grouped layout when the sheet lists features under category headings. Say what to change;
    say "锁定" when a product is done.
-3. **Banners** — for each banner you own: upload the mascot reference(s) in Grok Imagine when
-   asked, Claude writes the prompt, generates, shows a zoom, you give a verdict, it iterates.
-   Approved image → you download → upload to `diana_email_banner/DI Newsletter/<Month>/<Product>_banner.jpg`
-   → paste the GitHub URL back. The **hero** is regenerated every edition with all mascots
-   in the month's theme, title "Data Infra What's New" + pill "Newsletter <Mon YYYY> Release".
+3. **Banners (Grok Imagine, in your Chrome)** — for each banner you own:
+   - Claude navigates to grok.com/imagine in its tab group; if Grok shows a login or Cloudflare check,
+     finish it yourself and say 好了.
+   - When asked, upload the mascot reference (and the hero group shot for the theme) via **"+" → Upload**;
+     Claude then selects them from the Uploads panel, writes the prompt (16:9, mascot identity block,
+     theme, English text only) and generates.
+   - Claude shows a zoomed screenshot; you say OK or what to change; it iterates (text edits work well,
+     spacing edits less so — it will redesign the whole text block rather than nudge).
+   - Approved: **you** download the image from Grok and upload it to
+     `diana_email_banner/DI Newsletter/<Month>/<Product>_banner.jpg`, then paste the GitHub URL back.
+     (Claude's environment cannot reach assets.grok.com.)
+   - The **hero** is regenerated every edition with all mascots in the month's theme,
+     title "Data Infra What's New" + pill "Newsletter <Mon YYYY> Release".
+   - Products without a mascot get a text-only HTML banner (no Grok).
 4. **Layout** — two HTML files, rendered screenshots for review. Optional: ask Claude to send
    a card to ChatGPT for a layout-only review (text frozen); only CSS suggestions are applied.
 
