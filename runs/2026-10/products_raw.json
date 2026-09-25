@@ -1,0 +1,188 @@
+{
+  "tab": "10月newsletter",
+  "products": [
+    {
+      "id": "diana",
+      "name": "Diana",
+      "mascot": "diana_dgc_girl",
+      "source_rows": [
+        2
+      ],
+      "features": [
+        {
+          "name_raw": "Diana 2.8",
+          "problem_raw": "",
+          "row": 2
+        }
+      ],
+      "audience_raw": "",
+      "status_raw": "",
+      "entry": "",
+      "guide": "",
+      "existing_copy": "",
+      "status": "unknown",
+      "skip": false
+    },
+    {
+      "id": "data_studio",
+      "name": "Studio Agent",
+      "mascot": "datastudio",
+      "source_rows": [
+        3
+      ],
+      "features": [],
+      "audience_raw": "",
+      "status_raw": "",
+      "entry": "",
+      "guide": "",
+      "existing_copy": "",
+      "status": "unknown",
+      "skip": true
+    },
+    {
+      "id": "scheduler_agent",
+      "name": "Scheduler Agent",
+      "mascot": null,
+      "source_rows": [
+        4
+      ],
+      "features": [],
+      "audience_raw": "",
+      "status_raw": "",
+      "entry": "",
+      "guide": "",
+      "existing_copy": "",
+      "status": "unknown",
+      "skip": true
+    },
+    {
+      "id": "langfuse",
+      "name": "Langfuse",
+      "mascot": "langfuse_octopus",
+      "source_rows": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "features": [
+        {
+          "name_raw": "1. di-cli promoted to the primary developer entry point, now fully adapted to V4",
+          "problem_raw": "For all developers who integrate with Langfuse via CLI or scripts. Previously di-cli was just one of several access methods; now the MCP & CLI page leads with DI-CLI as the recommended developer entry point. All di-cli reads (traces, observations, sessions, scores) have fully switched to\n  the V4 event aggregation and no longer depend on the Postgres trace_sessions table — faster reads, consistent with the V4 single-table model.",
+          "row": 5
+        },
+        {
+          "name_raw": "2. Prompt list query performance optimization (~9x faster)",
+          "problem_raw": "For projects and teams managing large numbers of prompts. Every time you open the Prompts list, the page counts how many distinct prompts exist to drive the total and pagination. On projects with many prompts this count was slow and dominated database load, making the list sluggish to open. We've optimized how this count is computed, cutting it from ~1820ms to ~205ms (about 9x faster) w",
+          "row": 6
+        },
+        {
+          "name_raw": "3. V4 migration alerts: on-demand notifications triggered by legacy SDK / API usage",
+          "problem_raw": "For projects and users still on legacy SDKs or the legacy Ingestion API. To help everyone migrate smoothly to V4, we've shipped on-demand migration notifications: the system automatically detects, per project, any remaining legacy SDK calls, legacy API calls, and other items still pending migration (Experiments / Evals / Exports). When something needs to be handled, entering the project surfaces a center reminder modal first; once dismissed, it degrades to a persistent top banner that stays until the project completes migration, then disappears automatically. Unaffected projects are never interrupted.",
+          "row": 7
+        },
+        {
+          "name_raw": "4. Staying current with the community: upgraded to Langfuse V4.35.0",
+          "problem_raw": "We continuously track upstream Langfuse releases and have synced to V4.35.0 this month, immediately gaining the community's latest features and stability improvements — including the filter search bar, the redesigned Sessions timeline, the Experiments results view, and Scores filtering — keeping our internal platform evolving in lockstep with the open-source release.",
+          "row": 8
+        }
+      ],
+      "audience_raw": "All Langfuse users | Langfuse users who keep using v1 api and using legacy SDK (langfuse v3) | All Langfuse users",
+      "status_raw": "Released on September",
+      "entry": "https://langfuse.shopee.io/",
+      "guide": "",
+      "existing_copy": "",
+      "status": "live",
+      "skip": false
+    },
+    {
+      "id": "cli",
+      "name": "CLI",
+      "mascot": "cli_boy",
+      "source_rows": [
+        9
+      ],
+      "features": [],
+      "audience_raw": "",
+      "status_raw": "",
+      "entry": "",
+      "guide": "",
+      "existing_copy": "",
+      "status": "unknown",
+      "skip": true
+    },
+    {
+      "id": "dgc_agent",
+      "name": "DGC Agent",
+      "mascot": "diana_dgc_girl",
+      "source_rows": [
+        10
+      ],
+      "features": [],
+      "audience_raw": "",
+      "status_raw": "",
+      "entry": "",
+      "guide": "",
+      "existing_copy": "",
+      "status": "unknown",
+      "skip": true
+    },
+    {
+      "id": "datahub_agent",
+      "name": "Data Hub Agent",
+      "mascot": "datahub_robot",
+      "source_rows": [
+        11
+      ],
+      "features": [
+        {
+          "name_raw": "1. Kafka-to-hive\n2. Kafka-to-kafka\n3. RDB-to-kafka",
+          "problem_raw": "DataHub Agent now supports more ingestion flows\nDataHub Agent now supports Kafka-to-Hive, Kafka-to-Kafka, and RDB-to-Kafka, extending its coverage to include many of the Kafka ingestions. You can now get help with these flows through natural-language conversations, bringing more of your day-to-day data ingestion work into one place.",
+          "row": 11
+        }
+      ],
+      "audience_raw": "Data mart, marketplace teams, data engineers",
+      "status_raw": "Released in September",
+      "entry": "",
+      "guide": "",
+      "existing_copy": "",
+      "status": "live",
+      "skip": false
+    },
+    {
+      "id": "ram",
+      "name": "RAM",
+      "mascot": null,
+      "source_rows": [
+        12
+      ],
+      "features": [
+        {
+          "name_raw": "For HDFS alert:\n1. Separate Storage and File Count usage alert\n2. Implement a mechanism for multiple consecutive rounds of detection to reduce the false alarm rate\n3. Supports configuring allowed notification times for different channels.\n\nFor all alert type:\n1. Support seatalk private bot message to receive the alert",
+          "problem_raw": "",
+          "row": 12
+        }
+      ],
+      "audience_raw": "",
+      "status_raw": "Released in September",
+      "entry": "https://datasuite.shopee.io/ram/project-management",
+      "guide": "",
+      "existing_copy": "",
+      "status": "live",
+      "skip": false
+    }
+  ],
+  "notes": [
+    "Studio Agent: marked '/' — no update this month, skipped",
+    "Scheduler Agent: no mascot mapped in PRODUCT_MAP — ask for a reference image",
+    "Scheduler Agent: marked '/' — no update this month, skipped",
+    "Langfuse row 6: problem text may be truncated in the sheet — confirm with PIC",
+    "CLI: marked '/' — no update this month, skipped",
+    "DGC Agent: marked '/' — no update this month, skipped",
+    "RAM: no mascot mapped in PRODUCT_MAP — ask for a reference image",
+    "Diana: feature names only, no problem/scenario text — copy will be thin; ask PIC or use existing docs",
+    "Diana: no product entry URL — required for the card button",
+    "Data Hub Agent: no product entry URL — required for the card button",
+    "RAM: feature names only, no problem/scenario text — copy will be thin; ask PIC or use existing docs"
+  ]
+}

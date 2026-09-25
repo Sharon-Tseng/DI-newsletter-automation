@@ -1,0 +1,444 @@
+{
+  "edition": {
+    "month": "2026-10",
+    "edition_no": 3,
+    "title": "Data Infra What's New",
+    "edition_label": {
+      "en": "October 2026 Edition",
+      "zh": "2026 年 10 月号"
+    },
+    "next_month": {
+      "en": "November",
+      "zh": "11 月"
+    },
+    "preheader": {
+      "en": "Langfuse V4 developer experience, DataHub Agent Kafka flows, and smarter RAM alerts — the latest Data Infrastructure product updates.",
+      "zh": "Langfuse V4 开发体验、DataHub Agent Kafka 流程、更聪明的 RAM 告警 — Data Infra 最新产品更新。"
+    },
+    "hero_banner": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Hero%20Banner.jpg",
+    "intro": {
+      "en": [
+        "Dear colleagues,",
+        "Welcome to the third edition of the Data Infra Monthly Newsletter!",
+        "This month is about #OperateSmarter: Langfuse gets a faster, V4-first developer experience, DataHub Agent learns Kafka ingestion flows, and RAM's HDFS alerts become sharper and quieter. Fewer clicks, fewer false alarms, more time for the work that matters."
+      ],
+      "zh": [
+        "各位同事好，",
+        "欢迎阅读第三期 Data Infra 月报！",
+        "本月主题是 #OperateSmarter：Langfuse 带来更快、以 V4 为核心的开发体验，DataHub Agent 学会了 Kafka 数据接入流程，RAM 的 HDFS 告警也更精准、更安静。更少点击、更少误报，把时间留给真正重要的工作。"
+      ]
+    },
+    "theme": {
+      "canvas": "#F2F5EF",
+      "card_border": "#D3E2CC",
+      "ink_deep": "#1F3A2E",
+      "section_rule": "#D9E4D3",
+      "closing_bg": "#F4F8F1",
+      "closing_border": "#CFE0C8"
+    },
+    "theme_note": "October 2026: jungle/nature theme (low-saturation green canvas, green card outlines, blue accents kept).",
+    "hero_owner": "skill",
+    "hero_note": "Generated with Grok from the team's jungle group shot (all four mascots), title + 'Newsletter Oct 2026 Release' pill, approved 2026-09-25.",
+    "release_month": {
+      "en": "September",
+      "zh": "9 月"
+    }
+  },
+  "products": [
+    {
+      "id": "diana",
+      "name": "Diana",
+      "mascot": "diana_dgc_girl",
+      "status": "live",
+      "skip": true,
+      "skip_reason": "Pending PRD from the Diana team — copy for 2.8 will be written from the PRD (not the sheet) once it arrives. Keep skip=true until then.",
+      "source_rows": [
+        2
+      ],
+      "copy": {
+        "en": null,
+        "zh": null
+      },
+      "banner": {
+        "image": null,
+        "approved": false,
+        "attempts": []
+      },
+      "buttons": []
+    },
+    {
+      "id": "langfuse",
+      "name": "Langfuse",
+      "mascot": "langfuse_octopus",
+      "status": "live",
+      "skip": false,
+      "source_rows": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "release_note": "Released on September",
+      "copy": {
+        "en": {
+          "title": "Langfuse: September Updates",
+          "subtitle": "di-cli as primary entry point · faster Prompts list · V4 migration alerts · V4.35.0",
+          "audience": null,
+          "features": [
+            {
+              "name": "di-cli Is Now the Primary Developer Entry Point",
+              "tag": "For developers using CLI or scripts",
+              "desc": "All di-cli reads (traces, observations, sessions, scores) have fully switched to the V4 event aggregation and no longer depend on the Postgres trace_sessions table.",
+              "visual": {
+                "type": "checks",
+                "items": [
+                  "Faster reads",
+                  "Consistent with the V4 single-table model"
+                ]
+              }
+            },
+            {
+              "name": "Prompts List Query ~9× Faster",
+              "tag": "Projects and teams managing large numbers of prompts",
+              "desc": "We optimized the prompt count used for pagination, reducing query time from ~1,820 ms to ~205 ms. The Prompts list now opens more smoothly while placing less load on the database."
+            },
+            {
+              "name": "V4 Migration Alerts for Legacy SDK & API Usage",
+              "visual": {
+                "type": "steps",
+                "steps": [
+                  {
+                    "label": "Detect pending work",
+                    "caption": "Legacy SDK/API calls and pending V4 items in each project"
+                  },
+                  {
+                    "label": "Show reminder",
+                    "caption": "Appears when you open the project"
+                  },
+                  {
+                    "label": "Keep banner visible",
+                    "caption": "Stays until migration is complete"
+                  },
+                  {
+                    "label": "Clear automatically",
+                    "caption": "Disappears once complete"
+                  }
+                ],
+                "footnote": "Pending items include Experiments, Evals, and Exports.",
+                "note": "Unaffected projects are never interrupted."
+              }
+            },
+            {
+              "name": "Upgraded to Community Langfuse V4.35.0",
+              "desc": "Synced to V4.35.0 this month, keeping the internal platform in lockstep with upstream features and stability improvements.",
+              "bullets": [
+                "Filter search bar",
+                "Redesigned Sessions timeline",
+                "Experiments results view",
+                "Scores filtering"
+              ],
+              "bullets_style": "chips",
+              "bullets_label": "Improvements include:"
+            }
+          ]
+        },
+        "zh": {
+          "title": "Langfuse 9 月更新",
+          "subtitle": "di-cli 升为主要入口 · Prompts 更快 · 按需 V4 迁移提醒 · 同步 V4.35.0",
+          "audience": null,
+          "features": [
+            {
+              "name": "di-cli 成为主要的开发者入口",
+              "tag": "面向通过 CLI 或脚本接入的开发者",
+              "desc": "所有 di-cli 读取（trace、observation、session、score）已全面切换到 V4 事件聚合，不再依赖 Postgres 的 trace_sessions 表。",
+              "visual": {
+                "type": "checks",
+                "items": [
+                  "读取更快",
+                  "与 V4 单表模型一致"
+                ]
+              }
+            },
+            {
+              "name": "Prompts 列表查询提速约 9 倍",
+              "tag": "管理大量 prompt 的项目和团队",
+              "desc": "我们优化了分页所用的 prompt 计数，查询时间从约 1,820 ms 降到约 205 ms。Prompts 列表打开更流畅，也减轻数据库负载。"
+            },
+            {
+              "name": "针对旧版 SDK / API 使用的 V4 迁移提醒",
+              "visual": {
+                "type": "steps",
+                "steps": [
+                  {
+                    "label": "检测待处理项",
+                    "caption": "各项目的旧版 SDK/API 调用与待迁移 V4 项目"
+                  },
+                  {
+                    "label": "显示提醒",
+                    "caption": "打开项目时出现"
+                  },
+                  {
+                    "label": "保留横幅",
+                    "caption": "直到迁移完成"
+                  },
+                  {
+                    "label": "自动清除",
+                    "caption": "完成后消失"
+                  }
+                ],
+                "footnote": "待迁移项目包含 Experiments、Evals 与 Exports。",
+                "note": "未受影响的项目不会被打扰。"
+              }
+            },
+            {
+              "name": "同步社区版 Langfuse V4.35.0",
+              "desc": "本月同步到 V4.35.0，获得社区新功能与稳定性改进。",
+              "bullets": [
+                "筛选搜索栏",
+                "全新 Sessions 时间轴",
+                "Experiments 结果视图",
+                "Scores 筛选"
+              ],
+              "bullets_style": "chips",
+              "bullets_label": "更新内容包含："
+            }
+          ]
+        }
+      },
+      "banner": {
+        "headline": "Langfuse Goes Full Speed on V4",
+        "subheadline": null,
+        "highlight": "~1820 ms → ~205 ms",
+        "audience_tags": [],
+        "pose": "octopus racing forward with a speed-line trail, one tentacle holding a stopwatch, another a terminal window showing 'di-cli'",
+        "prompt": null,
+        "image": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/CLI_banner.jpg",
+        "approved": true,
+        "attempts": [
+          {
+            "prompt": "flat vector, white bg, headline 'Langfuse September Updates', blue pill",
+            "verdict": "user: bg too white/plain, font dull, headline not catchy, pill -> features as pills, 4 features not 3; also 'di-cli' -> 'di-chevron cli'"
+          },
+          {
+            "prompt": "navy/cobalt gradient, red speed streaks, rounded display font, 4 white pills",
+            "verdict": "user: colours too loud vs newsletter; theme this edition is jungle (hero attached)"
+          },
+          {
+            "prompt": "3D jungle style with 3D octopus",
+            "verdict": "user: keep original cartoon octopus; jungle bg ok; want font with personality"
+          },
+          {
+            "prompt": "jungle bg + original flat octopus, chunky rounded font, cobalt pills",
+            "verdict": "user: pills too saturated, too close to headline"
+          },
+          {
+            "prompt": "muted slate pills; spacing edits x2",
+            "verdict": "Grok barely moved spacing"
+          },
+          {
+            "prompt": "hand-lettered cream headline w/ green shadow, frosted pills, gap",
+            "verdict": "APPROVED"
+          }
+        ],
+        "pills": [
+          "di CLI first",
+          "Prompts ~9× faster",
+          "V4 migration alerts",
+          "V4.35.0"
+        ],
+        "approved_on": "2026-09-25",
+        "style": "jungle theme: 3D rainforest background, original flat-cartoon octopus, hand-lettered cream headline with soft green shadow, frosted-glass pills with forest-green text",
+        "note": "Grok refuses the hyphen in 'di-cli' (renders 'di CLI' or 'di-chevron cli'); team accepted 'di CLI' (matches DI CLI headband)."
+      },
+      "buttons": [
+        {
+          "label": {
+            "en": "Open Langfuse ↗",
+            "zh": "开启 Langfuse ↗"
+          },
+          "url": "https://langfuse.shopee.io/"
+        }
+      ]
+    },
+    {
+      "id": "datahub_agent",
+      "name": "DataHub Agent",
+      "mascot": "datahub_robot",
+      "status": "live",
+      "skip": false,
+      "source_rows": [
+        11
+      ],
+      "release_note": "Released in September",
+      "copy": {
+        "en": {
+          "title": "DataHub Agent Now Supports More Ingestion Flows",
+          "subtitle": "Coverage extends to many of the Kafka ingestions.",
+          "audience": "Data mart & marketplace teams, data engineers",
+          "features": [
+            {
+              "name": "Kafka Ingestion Flows Added",
+              "desc": "DataHub Agent now supports three more flows, extending its coverage to include many of the Kafka ingestions:",
+              "bullets": [
+                "Kafka-to-Hive",
+                "Kafka-to-Kafka",
+                "RDB-to-Kafka"
+              ],
+              "bullets_style": "chips"
+            },
+            {
+              "name": "Get Help Through Natural-Language Conversations",
+              "desc": "You can now get help with these flows by describing them in conversation, bringing more of your day-to-day data ingestion work into one place."
+            }
+          ]
+        },
+        "zh": {
+          "title": "DataHub Agent 支援更多接入流程",
+          "subtitle": "涵盖范围扩展到多数 Kafka 接入场景。",
+          "audience": "Data mart、Marketplace 团队与数据工程师",
+          "features": [
+            {
+              "name": "新增 Kafka 接入流程",
+              "desc": "DataHub Agent 新增支持三种流程，涵盖范围扩展到多数 Kafka 接入：",
+              "bullets": [
+                "Kafka-to-Hive",
+                "Kafka-to-Kafka",
+                "RDB-to-Kafka"
+              ],
+              "bullets_style": "chips"
+            },
+            {
+              "name": "用自然语言对话获得帮助",
+              "desc": "这些流程现在都可以通过对话描述来获得帮助，让更多日常数据接入工作集中在同一处。"
+            }
+          ]
+        }
+      },
+      "banner": {
+        "headline": "DataHub Agent: Kafka via Chat",
+        "subheadline": "Kafka-to-Hive · Kafka-to-Kafka · RDB-to-Kafka",
+        "highlight": "One conversation for every ingestion flow",
+        "audience_tags": [
+          "Data mart",
+          "Marketplace",
+          "Data engineers"
+        ],
+        "pose": "robot catching a stream of glowing data packets flowing from a Kafka-style pipeline into a Hive bucket, other fist raised",
+        "prompt": null,
+        "image": null,
+        "approved": false,
+        "attempts": [],
+        "owner": "external",
+        "note": "Banner produced by another team member (2026-09-25 decision). Drop the GitHub raw URL into banner.image and rebuild."
+      },
+      "buttons": [
+        {
+          "label": {
+            "en": "Try DataHub Agent ↗",
+            "zh": "试用 DataHub Agent ↗"
+          },
+          "url": "https://datasuite.shopee.io/datahub/normal/home"
+        }
+      ]
+    },
+    {
+      "id": "ram",
+      "name": "RAM",
+      "mascot": null,
+      "status": "live",
+      "skip": false,
+      "source_rows": [
+        12
+      ],
+      "release_note": "Released in September",
+      "notes": "No mascot — text-only banner. Grouped layout, titles only: descriptions removed by team request (kept as desc_source for the record); no numerals.",
+      "copy": {
+        "en": {
+          "title": "RAM: Alert Improvements",
+          "subtitle": "Three changes to HDFS alerts, plus Seatalk private-bot delivery for every alert type.",
+          "audience": null,
+          "features": [
+            {
+              "name": "Separate Storage and File-Count Usage Alerts",
+              "group": "HDFS alerts",
+              "desc_source": "Storage usage and file-count usage are now alerted separately."
+            },
+            {
+              "name": "Multiple Consecutive Rounds of Detection",
+              "group": "HDFS alerts",
+              "desc_source": "An alert now requires several consecutive detection rounds, reducing the false alarm rate."
+            },
+            {
+              "name": "Allowed Notification Times per Channel",
+              "group": "HDFS alerts",
+              "desc_source": "Configure the time windows in which each notification channel is allowed to send alerts."
+            },
+            {
+              "name": "Seatalk Private Bot Messages",
+              "group": "All alert types",
+              "desc_source": "Alerts of every type can now be received via Seatalk private bot message."
+            }
+          ],
+          "layout": "grouped",
+          "layout_opts": {
+            "numerals": false,
+            "descriptions": false
+          }
+        },
+        "zh": {
+          "title": "RAM：告警优化",
+          "subtitle": "HDFS 告警的三项改动，加上所有告警类型支援 Seatalk 私信机器人。",
+          "audience": null,
+          "features": [
+            {
+              "name": "存储用量与文件数用量告警拆分",
+              "group": "HDFS 告警",
+              "desc_source": "存储空间用量与文件数用量现在分别告警。"
+            },
+            {
+              "name": "连续多轮检测机制",
+              "group": "HDFS 告警",
+              "desc_source": "需连续多轮检测到才触发告警，降低误报率。"
+            },
+            {
+              "name": "各渠道可设置允许通知时间段",
+              "group": "HDFS 告警",
+              "desc_source": "为不同通知渠道设置允许发送告警的时间。"
+            },
+            {
+              "name": "Seatalk 私信机器人",
+              "group": "所有告警类型",
+              "desc_source": "所有类型的告警都可通过 Seatalk 私信机器人接收。"
+            }
+          ],
+          "layout": "grouped",
+          "layout_opts": {
+            "numerals": false,
+            "descriptions": false
+          }
+        }
+      },
+      "banner": {
+        "headline": "RAM: HDFS Alert Improvements",
+        "subheadline": "Split alerts · Multi-round detection · Seatalk DM",
+        "highlight": "Fewer false alarms",
+        "audience_tags": [],
+        "pose": null,
+        "prompt": null,
+        "image": null,
+        "approved": false,
+        "attempts": [],
+        "text_only": true
+      },
+      "buttons": [
+        {
+          "label": {
+            "en": "Open RAM ↗",
+            "zh": "开启 RAM ↗"
+          },
+          "url": "https://datasuite.shopee.io/ram/project-management"
+        }
+      ]
+    }
+  ]
+}
