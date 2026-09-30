@@ -1,0 +1,6 @@
+{"src":"cli_banner.jpg","out":"cli_banner_text.jpg","display_width":840,"copy_width_pct":0.68,"padding":[24,32],
+ "elements":[
+  {"type":"title","text":"DI CLI V1.2","size":52,"color":"#000000","font":"gloock","tracking":0.8,"wrap":false},
+  {"type":"stamp","text":"NOW LIVE","size":14,"color":"#0B8F5C","inline_with_title":true,"tracking":2,"pad_x":10,"pad_y":6},
+  {"type":"subtitle","text":"New Features","size":44,"color":"#1F513C","font":"marmelad","bold":true,"gap_before":4,"line_height":48},
+  {"type":"cards","items":["SLA Instance Info Lookup","Kafka Topic Request Management","Resource Governance Integration","Expanded DataHub Task Management"],"cols":2,"size":14,"color":"#1F513C","min_height":56,"pad":[8,11],"gap":8,"gap_before":10}]}

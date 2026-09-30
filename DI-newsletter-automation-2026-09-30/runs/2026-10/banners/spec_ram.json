@@ -1,0 +1,5 @@
+{"src":"ram_banner.jpg","out":"ram_banner_text.jpg","display_width":840,"copy_width_pct":0.66,"padding":[24,32],
+ "elements":[
+  {"type":"title","text":"RAM","size":48,"color":"#103C77","font":"gloock","tracking":-1.1,"wrap":false},
+  {"type":"subtitle","text":"HDFS Alert Improvements","size":26,"color":"#153B42","font":"marmelad","bold":true,"gap_before":9},
+  {"type":"tags","items":["HDFS alert","Seatalk Bot Messages"],"size":16,"color":"#164A94","bg":[255,255,255,242],"border":[29,79,153,71],"pad":[7,10],"radius":7,"gap":7,"gap_before":13}]}

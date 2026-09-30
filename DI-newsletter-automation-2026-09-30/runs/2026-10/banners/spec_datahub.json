@@ -1,0 +1,5 @@
+{"src":"datahub_agent_banner.jpg","out":"datahub_agent_banner_text.jpg","display_width":840,"copy_width_pct":0.68,"padding":[24,32],
+ "elements":[
+  {"type":"title","text":"DataHub Agent","size":48,"color":"#E97812","font":"gloock","tracking":-1.1,"wrap":false},
+  {"type":"subtitle","text":"Kafka via Chat","size":25,"color":"#153B42","font":"marmelad","bold":true,"gap_before":9},
+  {"type":"tags","items":["Kafka-to-Hive","Kafka-to-Kafka","RDB-to-Kafka"],"size":17,"color":"#AF8200","bg":[255,253,239,245],"border":[189,145,31,90],"pad":[7,10],"radius":7,"gap":7,"gap_before":15}]}
