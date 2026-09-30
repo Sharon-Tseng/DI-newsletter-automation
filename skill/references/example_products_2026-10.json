@@ -476,6 +476,9 @@
         "en": "raw/cli_final.html",
         "zh": "raw/cli_final_zh.html"
       },
+      "copy_limit": {
+        "zh": 370
+      },
       "copy": {
         "en": {
           "title": "DI CLI V1.2",
@@ -597,7 +600,8 @@
           "url": "https://link.seatalk.io/group/open?invite_id=IkaYSKrlQS6SmkTenj4aBdpd5cpcCWFJDcTBAC0wIVETDidJrx0r9xfuEcSCs8c8ZcJh7lwPMvErGiGGv7-G"
         }
       ],
-      "notes": "EN + ZH content taken verbatim from colleague's final HTML (2026-09-30). Claude's earlier ZH translation kept in copy.zh for the record only."
+      "notes": "EN + ZH content taken verbatim from colleague's final HTML (2026-09-30). Claude's earlier ZH translation kept in copy.zh for the record only.",
+      "copy_limit_reason": "Team decision 2026-09-30: colleague's ZH final text is 363 chars and ships verbatim as raw_module; ceiling raised to 370 for this card only."
     },
     {
       "id": "diana",

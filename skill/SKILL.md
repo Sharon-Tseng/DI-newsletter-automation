@@ -153,7 +153,8 @@ only. Always re-run `check_copy.py` after any copy edit.
 
 ## Things that are not negotiable
 
-- Length: ≤ 300 EN words / ≤ 300 ZH chars per product card. The checker is the referee.
+- Length: ≤ 300 EN words / ≤ 300 ZH chars per product card. The checker is the referee;
+  a team-approved per-product exception is recorded as `copy_limit` (Oct 2026: DI CLI zh 370).
 - Mascot identity features never change; poses do. Reject drifted images.
 - Banner text is English in both language editions.
 - Every card ends with at least one button (entry link or guide/demo). Diana cards always

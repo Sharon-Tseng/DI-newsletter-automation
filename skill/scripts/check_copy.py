@@ -4,7 +4,8 @@
 Rule: per product, per language, everything a reader sees inside the card body —
 title, subtitle, audience line, feature names, descriptions, bullets and examples —
 must fit in 300 English words (en) or 300 CJK/word characters (zh). Button labels
-are excluded. Also flags features with no description, and audience lines that are
+are excluded. A product may carry "copy_limit": {"en"|"zh": N} when the team approved a
+higher ceiling for it (Oct 2026: DI CLI zh 370). Also flags features with no description, and audience lines that are
 just "All <product> users" (those should be dropped, not shown).
 
 Usage: python check_copy.py <run_dir>   (exit code 1 if any product fails)
@@ -14,7 +15,7 @@ import os
 import re
 import sys
 
-LIMIT = {"en": 300, "zh": 300}          # hard ceiling
+LIMIT = {"en": 300, "zh": 300}          # hard ceiling; a product may raise it with "copy_limit": {"zh": 370}
 TARGET = {"en": 250, "zh": 280}         # comfortable target; 300 is the hard limit
 FEATURE_MAX = {"en": 45, "zh": 65}      # per-feature desc: one main sentence + one background sentence
 
@@ -63,10 +64,12 @@ def main(run_dir):
                 continue
             n = sum(count(lang, s) for s in texts(copy, lang))
             unit = "words" if lang == "en" else "chars"
-            flag = "OK  " if n <= TARGET[lang] else ("LONG" if n <= LIMIT[lang] else "OVER")
-            if n > LIMIT[lang]:
+            limit = (p.get("copy_limit") or {}).get(lang, LIMIT[lang])   # team-approved per-product ceiling
+            flag = "OK  " if n <= TARGET[lang] else ("LONG" if n <= limit else "OVER")
+            if n > limit:
                 failed = True
-            print(f"[{flag}] {p['id']:<16} {lang}  {n:>3} {unit}  (target {TARGET[lang]}, max {LIMIT[lang]})")
+            note = f", raised for this product" if limit != LIMIT[lang] else ""
+            print(f"[{flag}] {p['id']:<16} {lang}  {n:>3} {unit}  (target {TARGET[lang]}, max {limit}{note})")
             for f in copy.get("features", []):
                 dn = count(lang, f.get("desc", ""))
                 if dn > FEATURE_MAX[lang]:

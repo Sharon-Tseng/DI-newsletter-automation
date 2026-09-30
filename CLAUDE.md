@@ -54,7 +54,8 @@ Banner/screenshot images are hosted in `Sharon-Tseng/diana_email_banner` (`DI Ne
 Copy
 - Edit the PIC's sheet text; **never invent** nouns, examples, chip labels, or benefits
   (rejected: guessed "SDK / API / MCP" chips, invented prompt examples).
-- ≤ 300 EN words / 300 ZH chars per card (hard); target 250/280. One main sentence + one
+- ≤ 300 EN words / 300 ZH chars per card (hard); target 250/280. Per-product exception only by
+  team decision via `copy_limit` in products.json (Oct 2026: DI CLI ZH 370). One main sentence + one
   background sentence per feature; lists → chips; sequences → steps; benefits → ✓ checks.
 - Reader situation goes in a small blue uppercase kicker above the feature title (EN);
   ZH kicker 12/18 w500, no uppercase/tracking.
@@ -120,8 +121,7 @@ Pending / next steps
 6. (done 2026-09-30) Repo flattened, `runs/2026-10/` committed, `dist/` re-packaged after making
    `build_newsletter.py` run on Python 3.9 (backslashes moved out of f-strings) — **re-upload
    `dist/data-infra-newsletter.skill` to Claude** so the installed skill matches `skill/`.
-7. `check_copy.py` reports DI CLI ZH at 363/300 — harmless (that card ships as the colleague's
-   raw module), but the check exits 1 until raw-module products are skipped or the JSON copy trimmed.
+7. (done 2026-09-30) DI CLI ZH ceiling raised to 370 via `copy_limit`; `check_copy.py` passes.
 
 ## Context-size hygiene (learned the hard way, 2026-09-30)
 

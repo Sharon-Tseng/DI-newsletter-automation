@@ -61,7 +61,9 @@ the feature plainly and raise "ask PIC for scenario text" at the checkpoint.
 
 ## Length rule — enough background, not padding
 
-Hard limit: **≤ 300 EN words / ≤ 300 ZH chars per card**. The layout should not look like a
+Hard limit: **≤ 300 EN words / ≤ 300 ZH chars per card**. Only the team can raise it, per
+product, by setting `copy_limit` on that product in `products.json` (Oct 2026: DI CLI ZH → 370,
+because the colleague's final text ships verbatim). The layout should not look like a
 wall of text, but the team also asked for "一些 background" — so the shape per feature is:
 one main sentence (what changed) + one background sentence (why it was a problem / how it
 behaves), each in the PIC's words. Lists become `bullets`; before/after changes become a

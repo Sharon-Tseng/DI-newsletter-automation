@@ -33,6 +33,7 @@ Stage 3 fills `banner.image`, Stage 4 reads everything. Editing this file and re
       "skip": false,                           // true → omitted from output (kept for the record)
       "show_header": {"zh": true},             // optional; bool or per-language. Default: hidden when a banner exists.
                                                // Use per-language when the banner carries EN text only (scene-only image in ZH).
+      "copy_limit": {"zh": 370},               // optional: per-product ceiling for check_copy.py when the team approved more than 300 (Oct 2026: DI CLI zh)
       "raw_module": {"en": "raw/cli_final.html"},   // optional: insert a colleague's card HTML verbatim for that language
                                                // (one <table class="newsletter-module">…</table>; its CSS goes in edition.extra_css)
       "source_rows": [5, 6, 7, 8],
