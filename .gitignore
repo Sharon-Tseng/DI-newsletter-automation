@@ -10,7 +10,8 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+# dist/ is intentionally tracked here: it holds the packaged data-infra-newsletter.skill
+# dist/
 downloads/
 eggs/
 .eggs/

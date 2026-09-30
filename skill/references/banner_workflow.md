@@ -141,3 +141,57 @@ Prompt lessons
   edition so cards match.
 - Feature pills must cover ALL features on the card (the first draft listed 3 of 4 and the
   user caught it).
+
+## Baking text into banners (rule from Sep 30, 2026)
+
+Text on a banner must be **part of the image**. HTML/CSS overlays (`position:absolute`,
+flex, grid) are stripped by Gmail and Outlook and the words simply vanish — this happened
+with the colleague-built DataHub / RAM / CLI cards in Oct 2026. Two acceptable routes:
+1. Grok draws the text (product banners, hero) — check spelling every time.
+2. `scripts/bake_banner_text.py spec.json` renders title / subtitle / tags / 2-column
+   feature cards / an inline NOW LIVE stamp onto a scene-only image with the real fonts
+   (`assets/fonts/Gloock-Regular.ttf`, `Marmelad-Regular.ttf`), scaled from CSS px at 840
+   display width to the image's pixel width. Specs for the Oct cards live in
+   `runs/2026-10/banners/spec_*.json` — copy one and change texts/colours. Output
+   `<name>_banner_text.jpg` is what goes into the HTML; the raw module's `.hero-copy`
+   overlay div is deleted.
+Route 2 exists and works, but the team judged the Oct 2026 baked result "很醜" and chose to
+keep the colleague's CSS overlay. So: offer baking, show the result, let the user decide;
+if they keep the overlay, remind them once that Gmail/Outlook will drop the text.
+
+GitHub hygiene: one file name per image, forever. `CLI_banner.jpg` held the Langfuse banner,
+was later overwritten by the CLI scene, and the Langfuse card silently showed the wrong
+picture until re-uploaded as `Langfuse_banner.jpg`. Name files `<Product>_banner.jpg` and
+check the downloaded bytes match the approved image before wiring a URL.
+
+## Per-language banner text (Diana 2.8, Sep 30 2026)
+
+When the team wants the product title + subtitle on the banner in each language, bake two
+images (`<product>_banner_text_en.jpg`, `_zh.jpg`) and set `banner.image` to a dict
+`{"en": …, "zh": …}`; the card header then hides in both editions. Fonts available in
+`assets/fonts/`: Bodoni Moda (variable: weight 400–900, optical size 6–96), Noto Sans
+(variable), Noto Sans SC (CJK, 17 MB — NOT bundled; fetch when needed with
+`curl -sL -o assets/fonts/NotoSansSC[wght].ttf "https://raw.githubusercontent.com/google/fonts/main/ofl/notosanssc/NotoSansSC%5Bwght%5D.ttf"`), Gloock, Marmelad. For Chinese subtitles
+break lines at punctuation (，、；) rather than by width so words like 协作 aren't split.
+The Diana recipe (right-hand sky, centred): title Gloock @48px-equivalent (same face as the DataHub banner — Bodoni was judged hard to read), green
+#347610, thin white rule 320px under it; subtitle Noto Sans 600 @15px, blue #324887, two
+lines, 26px leading; a blurred dark drop shadow (offset 3px, blur 3px, ~55% alpha) under all
+text — the team asked for it because flat text was hard to read over the sky; all sizes ×
+(image_px / 840).
+
+## Chinese-text banners with Grok (Langfuse ZH, Sep 30 2026) — preferred route
+
+Grok Imagine renders Simplified Chinese well enough to use directly. Recipe that worked:
+1. In the post view of the approved EN banner, ask Grok to reproduce it "exactly but REMOVE ALL
+   TEXT" → clean scene (also useful as a base for baking).
+2. Edit that result: add the Chinese headline and pills, quoting each string exactly, "in the
+   same style as the English version" (cream hand-lettered headline with green shadow, frosted
+   pills with forest-green text). Result: headline + 3 of 4 pills perfect on the first try.
+3. Check every pill/headline character. Fix ONE element per edit ("change only the text in the
+   third pill to exactly …, keep everything else"); spacing nudges ("move the pills down 6%")
+   also worked this time when the edit box had the image attached.
+4. If a Grok edit seems to do nothing (URL unchanged, same image), the composer may have
+   re-laid out after attaching the image — click into the input again and retype.
+Store the result as `banner.image.zh` (GitHub `<Product>_CN_banner.jpg`); EN stays in
+`banner.image.en`. Baking with PIL (bake_banner_text.py) is the fallback when Grok garbles a
+character repeatedly.

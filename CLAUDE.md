@@ -23,9 +23,11 @@ skill/scripts/
   check_copy.py                length/audience/caption checks (target 250/280, hard 300)
   build_newsletter.py          THE TEMPLATE: products.json → out/newsletter_<m>_{en,zh}.html
   render_preview.py            Playwright screenshots for review (--card <id> crops one card)
+  bake_banner_text.py          renders title/subtitle/tags/stamp onto a scene-only banner (spec JSON)
 skill/assets/mascots/          reference images
+skill/assets/fonts/            Gloock, Marmelad, Bodoni Moda, Noto Sans (for bake_banner_text.py)
 dist/data-infra-newsletter.skill   packaged skill to upload to Claude (zip, top folder data-infra-newsletter/)
-runs/2026-10/                  products.json, products_raw.json, out/, images/, review log
+runs/2026-10/                  products.json, products_raw.json, out/, images/, banners/, raw/, review log
 ```
 
 Banner/screenshot images are hosted in `Sharon-Tseng/diana_email_banner` (`DI Newsletter/<Month>/`);
@@ -47,6 +49,8 @@ Banner/screenshot images are hosted in `Sharon-Tseng/diana_email_banner` (`DI Ne
 
 ## Rules the team fixed (do not relitigate)
 
+- Diana cards always end with three buttons: Open Diana, Diana Community, Give us Feedback (URLs in `skill/references/copy_guidelines.md` → "Fixed buttons per product").
+
 Copy
 - Edit the PIC's sheet text; **never invent** nouns, examples, chip labels, or benefits
   (rejected: guessed "SDK / API / MCP" chips, invented prompt examples).
@@ -58,7 +62,7 @@ Copy
 - Source can be a **PRD** (Diana 2.8) — same no-invention rule.
 
 Layout
-- Section title: "<release_month> Product Updates" (never "Latest").
+- Two product sections: "LATEST RELEASES / <release_month> Product Updates" (live only) then "NEXT UP / Coming in <next_month>" for every non-live product, after Latest Releases. `next_month` = the edition's own month (Oct edition → "Coming in October").
 - With a banner present, card title/subtitle/audience are hidden; a **stamp-style** status badge
   (double outline, tracked caps, −6° tilt) sits inline right of feature 01 / first group header.
 - Visual components: `checks` (✓ row), `steps` (timeline: markers on a rail, no boxes),
@@ -91,23 +95,33 @@ Review loop
 ## October 2026 status (as of 2026-09-30)
 
 Done
-- Theme: jungle. Hero banner live (GitHub `October/Hero Banner.jpg`).
+- Theme: jungle. Hero banner live (GitHub `October/Hero Banner.png`, replaced 2026-09-30; 2.8 MB PNG — consider a JPG for faster email loading).
 - Langfuse card: 4 features, ✓ row, timeline steps, chips with "Improvements include:",
-  MCP & CLI screenshot with centred caption; banner live (GitHub `October/CLI_banner.jpg` — **misnamed**, it is the Langfuse banner; ask Sharon to rename → then update URL).
-- DataHub Agent card: copy done; banner from a colleague — placeholder until URL arrives.
-- RAM card: grouped title-only layout; text-only banner.
-- Diana 2.8: skipped, waiting for PRD.
+  MCP & CLI screenshot (GitHub `October/Langfuse_pic1.jpg`) with centred caption; banners live
+  per language: EN `October/Langfuse_banner.jpg`, ZH `October/Langfuse_CN_banner.jpg`
+  (Chinese text drawn by Grok — see banner_workflow "Chinese-text banners with Grok").
+- DataHub Agent, RAM, **DI CLI V1.2** cards (EN): colleague's final HTML integrated verbatim as
+  `raw_module`s (`runs/2026-10/raw/`); their scene-only banners are hosted on GitHub
+  (`October/datahub_agent_banner.jpg`, `ram_banner.jpg`, `CLI_banner.jpg`) and their
+  title/tags stay as the colleague's CSS overlay (team rejected the baked-text variant as
+  ugly — note: CSS overlays disappear in Gmail/Outlook; the team accepted this for now).
+  ZH editions of the three are the colleague's ZH final (raw_module.zh + extra_css.zh), with
+  CJK fallback → PingFang, "NOW LIVE" → "已上线", letter-spacing 0 for consistency.
+- **All images are GitHub raw URLs; both HTML files have no local paths and are ready to send.**
+- Diana 2.8: card added 2026-09-30 from the team's Diana2.8 EN/CN HTML (3 features, "Coming Soon" stamp, placed in the "NEXT UP / Coming in October" section after DI CLI (status `coming`)); banner: team scene `October/diana banner.png` with title + subtitle baked per language (`runs/2026-10/banners/diana_banner_text_{en,zh}.jpg`, Gloock green title (Bodoni rejected as hard to read) / Noto Sans blue subtitle over the right-hand sky, soft drop shadow, 26px leading) — hosted on GitHub (`October/diana_banner_text_{en,zh}.jpg`). Intro paragraph replaced with the team's three-theme text. **Button URL is the staging host** (`datasuite.staging.shopee.io`) — confirm before sending.
 - Both HTML editions build cleanly; ZH Langfuse is at 299/300 chars (at the limit).
 
 Pending / next steps
-1. Receive DataHub Agent banner URL → set `products[datahub_agent].banner.image` → rebuild.
-2. Receive Diana 2.8 PRD → write EN/ZH copy from it (`skip=false`, `source_rows` = PRD sections) → rebuild.
-3. Upload `runs/2026-10/images/langfuse_mcp_cli_page.jpg` to `diana_email_banner/October/`,
-   switch `image.src` to the raw URL, rebuild for the final send (HTML then has no local paths).
-4. Rename `CLI_banner.jpg` → `Langfuse_banner.jpg` on GitHub and update the URL.
+1. (done) All banners hosted on GitHub.
+2. Confirm the Diana "Open Diana" URL (staging vs production) and swap if needed.
+3. (done) Screenshot hosted as `Langfuse_pic1.jpg`.
+4. (done) Langfuse banner re-uploaded as `Langfuse_banner.jpg` after `CLI_banner.jpg` was overwritten by the CLI scene — lesson: one file name per image, never reuse.
 5. Final review of both HTML files in a real mail client (Outlook + Gmail), then send.
-6. Commit `runs/2026-10/` and, if anything under `skill/` changed, re-package `dist/` and
-   re-upload the `.skill` to Claude.
+6. (done 2026-09-30) Repo flattened, `runs/2026-10/` committed, `dist/` re-packaged after making
+   `build_newsletter.py` run on Python 3.9 (backslashes moved out of f-strings) — **re-upload
+   `dist/data-infra-newsletter.skill` to Claude** so the installed skill matches `skill/`.
+7. `check_copy.py` reports DI CLI ZH at 363/300 — harmless (that card ships as the colleague's
+   raw module), but the check exits 1 until raw-module products are skipped or the JSON copy trimmed.
 
 ## Context-size hygiene (learned the hard way, 2026-09-30)
 

@@ -10,6 +10,106 @@
 html,body{margin:0;padding:0;background:#F2F5EF;}
 img{border:0;outline:none;text-decoration:none;}
 @media only screen and (max-width:840px){ .shell,.hero-welcome-card{width:100% !important;max-width:100% !important;} .card-pad{padding:28px 20px 28px !important;} }
+
+.hero-visual{position:relative;overflow:hidden;background:#EBEEE4;}
+.hero-copy{position:absolute;inset:0 auto 0 0;width:68%;box-sizing:border-box;padding:24px 32px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;font-family:'Marmelad','PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;}
+.hero-title{margin:0;color:#103C77;font-family:'Gloock','PingFang SC','Microsoft YaHei','Noto Sans SC',Georgia,serif;font-size:48px;line-height:1.08;font-weight:400;letter-spacing:-1.1px;}
+.hero-subtitle{margin:9px 0 0;color:#153B42;font-size:25px;line-height:31px;font-weight:700;}
+.hero-tags{margin-top:15px;display:flex;flex-wrap:wrap;gap:7px;max-width:100%;}
+.hero-tag{display:inline-block;padding:7px 10px;border-radius:7px;background:rgba(255,255,255,.95);border:1px solid rgba(29,79,153,.28);box-shadow:0 2px 7px rgba(33,52,31,.12);color:#164A94;font-size:17px;line-height:21px;font-weight:700;white-space:nowrap;}
+.datahub-hero .hero-title{color:#E97812;}
+.datahub-hero .hero-tag{color:#AF8200;background:rgba(255,253,239,.96);border-color:rgba(189,145,31,.35);}
+.ram-hero .hero-copy{width:66%;}
+.ram-hero .hero-subtitle{font-size:26px;line-height:31px;}
+.hero-description{margin:9px 0 0;color:#203F41;font-size:16px;line-height:22px;max-width:430px;}
+.ram-hero .hero-tags{margin-top:13px;}
+.ram-hero .hero-tag{font-size:16px;line-height:21px;}
+.ram-panel{border:1px solid #D9E1EA;border-left:4px solid #2463D4;border-radius:12px;background:#F5F7FA;padding:22px 22px 24px;}
+.ram-panel-header{width:100%;border-collapse:collapse;margin-bottom:20px;}
+.ram-panel-title{margin:0;color:#1F4FB8;font-family:'Gloock','PingFang SC','Microsoft YaHei','Noto Sans SC',Georgia,serif;font-size:29px;line-height:35px;font-weight:400;}
+.live-stamp{display:inline-block;padding:9px 18px;border:4px double #0B8F5C;border-radius:8px;color:#0B8F5C;font-family:'Marmelad','PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:19px;line-height:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;white-space:nowrap;transform:rotate(-6deg);}
+.ram-list{width:100%;border-collapse:collapse;}
+.ram-list td{vertical-align:top;padding-top:17px;}
+.ram-list tr:first-child td{padding-top:0;}
+.ram-list .number-cell{width:32px;padding-right:14px;}
+.number-dot{display:inline-block;width:28px;height:28px;border-radius:50%;background:#2463D4;color:#FFF;font-size:16px;line-height:28px;text-align:center;}
+.ram-item-text{font-family:'Gloock','PingFang SC','Microsoft YaHei','Noto Sans SC',Georgia,serif;font-size:20px;line-height:29px;font-weight:400;color:#172033;}
+.ram-message{margin-top:16px;padding:22px 24px;border:1px solid #D9E1EA;border-left:4px solid #00A96B;border-radius:12px;background:#F5F7FA;}
+.ram-message p{margin:0;font-family:'Gloock','PingFang SC','Microsoft YaHei','Noto Sans SC',Georgia,serif;font-size:20px;line-height:30px;color:#172033;}
+@media only screen and (max-width:840px){
+.shell{width:100% !important;max-width:100% !important;}
+.card-pad{padding:28px 24px 34px !important;}
+.hero-copy{padding:20px 26px;width:68%;}
+.hero-title{font-size:42px;}
+.hero-subtitle{font-size:23px;line-height:28px;margin-top:7px;}
+.hero-tags{margin-top:12px;gap:6px;}
+.hero-tag{font-size:16px;line-height:20px;padding:6px 9px;}
+.ram-hero .hero-subtitle{font-size:23px;line-height:28px;}
+.ram-hero .hero-copy{width:67%;}
+.hero-description{font-size:15px;line-height:21px;margin-top:7px;}
+.ram-hero .hero-tag{font-size:15px;line-height:20px;}
+}
+@media only screen and (max-width:600px){
+.hero-copy{position:relative;width:100% !important;padding:22px 24px;background:#EEF0E7;}
+.hero-title{font-size:40px;}
+.hero-image{width:100%;height:auto;}
+.ram-panel{padding:20px 16px;}
+.ram-panel-title{font-size:26px;line-height:32px;}
+.ram-panel-header .live-stamp{padding:6px 9px;font-size:14px;line-height:20px;letter-spacing:1.5px;}
+.ram-item-text,.ram-message p{font-size:18px;line-height:27px;}
+.ram-list .number-cell{padding-right:10px;}
+.datahub-heading-cell,.datahub-status-cell{display:block;width:auto !important;}
+.datahub-status-cell{padding:20px 0 0 !important;text-align:left;}
+.datahub-heading-cell h1{font-size:30px !important;line-height:37px !important;}
+}
+
+
+/* DI CLI V1.2 */
+.cli-hero-heading{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px;width:100%;}
+.cli-hero .hero-title{color:#000000;font-size:52px;letter-spacing:.8px;}
+.cli-hero-subtitle{margin:4px 0 0;color:#1F513C;font-size:44px;line-height:48px;font-weight:700;}
+.cli-live-stamp{flex-shrink:0;padding:6px 10px;border-width:3px;font-size:14px;line-height:18px;letter-spacing:2px;background:rgba(255,255,255,.7);}
+.cli-feature-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%;margin-top:10px;}
+.cli-hero .cli-feature-card{display:flex;align-items:center;box-sizing:border-box;min-height:56px;padding:8px 11px;color:#1F513C;font-size:14px;line-height:19px;white-space:normal;}
+.cli-updates{width:100%;border-collapse:collapse;}
+.cli-number{width:52px;min-width:52px;padding:24px 13px 24px 0;font-family:'Gloock','PingFang SC','Microsoft YaHei','Noto Sans SC',Georgia,serif;font-size:29px;line-height:32px;font-weight:400;}
+.cli-detail{padding:24px 0;border-bottom:1px solid #E8EDF5;}
+.cli-updates tr:first-child .cli-number,.cli-updates tr:first-child .cli-detail{padding-top:0;}
+.cli-updates tr:last-child .cli-number,.cli-updates tr:last-child .cli-detail{padding-bottom:0;border-bottom:0;}
+.cli-detail h2{margin:0 0 9px;font-family:'Gloock','PingFang SC','Microsoft YaHei','Noto Sans SC',Georgia,serif;font-size:23px;line-height:30px;font-weight:400;color:#172033;}
+.cli-detail p,.cli-detail li{font-family:'Marmelad','PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:16px;line-height:25px;color:#657083;}
+.cli-detail p{margin:0;}
+.cli-detail ul{margin:10px 0 0;padding-left:22px;}
+.cli-detail li{padding-left:2px;margin:5px 0 0;}
+.cli-detail li::marker{color:#2463D4;}
+.cli-detail .cli-follow-on{margin-top:12px;}
+.cli-detail code{display:inline-block;padding:0 5px;border-radius:4px;background:#E8F0FE;color:#1F4FB8;font-family:Consolas,'Courier New',monospace;font-size:15px;line-height:23px;white-space:nowrap;}
+.cli-flow-tags{margin-top:13px;display:flex;flex-wrap:wrap;gap:8px;}
+.cli-flow-tags span{display:inline-block;padding:9px 13px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-size:16px;line-height:22px;font-weight:700;white-space:nowrap;}
+.cli-subsection h3{margin:0 0 7px;font-family:'Marmelad','PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:24px;font-weight:700;color:#1F4FB8;}
+.cli-subsection + .cli-subsection{margin-top:20px;padding-top:18px;border-top:1px solid #E8EDF5;}
+@media only screen and (max-width:840px){
+.cli-hero .hero-title{font-size:48px;}
+.cli-hero-subtitle{font-size:40px;line-height:44px;}
+.cli-hero-copy{padding-top:12px;padding-bottom:12px;}
+}
+@media only screen and (max-width:740px){
+.cli-hero-copy{position:relative;width:100%;padding:22px 24px;background:#EEF0E7;}
+}
+@media only screen and (max-width:600px){
+.cli-hero .hero-title{font-size:44px;}
+.cli-hero-subtitle{font-size:36px;line-height:40px;}
+.cli-actions td{display:block;width:auto !important;padding:0 0 14px !important;}
+.cli-actions td:last-child{padding-bottom:0 !important;}
+.cli-number{width:34px;min-width:34px;padding-right:10px;font-size:26px;line-height:30px;}
+.cli-detail h2{font-size:21px;line-height:28px;}
+.cli-subsection h3{font-size:16px;line-height:23px;}
+}
+
+/* ZH edition: Chinese title glyphs render in PingFang; match the template's 600 weight and zero tracking */
+.card-title,.cli-detail h2,.ram-panel-title,.ram-item-text,.ram-message p,.feature-title h2,h1,h2{letter-spacing:0;}
+.live-stamp{letter-spacing:5px;font-size:20px;}
+
 </style>
 </head>
 <body style="margin:0;padding:0;background:#F2F5EF;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
@@ -18,9 +118,9 @@ img{border:0;outline:none;text-decoration:none;}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
 <tr><td align="center" valign="top" style="padding:24px 14px 32px;background:#F2F5EF;">
 <table class="hero-welcome-card" role="presentation" width="840" cellpadding="0" cellspacing="0" border="0" style="width:840px;max-width:100%;border-collapse:separate;border-spacing:0;border:1px solid #D3E2CC;border-radius:22px;background:#FFFFFF;box-shadow:0 8px 24px rgba(33,91,170,.10);overflow:hidden;">
-<tr><td style="padding:0;"><img src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Hero%20Banner.jpg" width="840" alt="Data Infra What&#x27;s New" style="display:block;width:840px;max-width:100%;height:auto;border:0;"></td></tr>
+<tr><td style="padding:0;"><img src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Hero%20Banner.png" width="840" alt="Data Infra What&#x27;s New" style="display:block;width:840px;max-width:100%;height:auto;border:0;"></td></tr>
 <tr><td style="padding:36px 44px 38px;background:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:16px;line-height:28px;letter-spacing:0;color:#657083;text-align:left;">
-<p style="margin:0 0 4px;color:#172033;"><strong>各位同事好，</strong></p><p style="margin:0 0 12px;color:#172033;"><strong>欢迎阅读第三期 Data Infra 月报！</strong></p><p style="margin:0;">本月主题是 <strong style="color:#2463D4;">#OperateSmarter</strong>：Langfuse 带来更快、以 V4 为核心的开发体验，DataHub Agent 学会了 Kafka 数据接入流程，RAM 的 HDFS 告警也更精准、更安静。更少点击、更少误报，把时间留给真正重要的工作。</p>
+<p style="margin:0 0 4px;color:#172033;"><strong>各位同事，大家好！</strong></p><p style="margin:0 0 12px;color:#172033;"><strong>欢迎阅读最新一期《Data Infra 月度通讯》！</strong></p><p style="margin:0;">本月更新围绕三大主题展开：<strong style="color:#2463D4;">#AnalyzeSmarter</strong>、<strong style="color:#2463D4;">#BuildFaster</strong> 和 <strong style="color:#2463D4;">#OperateWithConfidence</strong>。从 Diana 2.8 更具扩展性、连接性的分析体验，到持续增强的 CLI 与 DataHub Agent 能力，再到更高效的 Langfuse 性能和更可靠的资源告警，这些更新旨在简化数据工作流程、加速开发，并帮助团队更高效、更有信心地开展工作。</p>
 </td></tr></table></td></tr></table><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
 <tr><td align="center" valign="top" style="padding:0 14px 16px;background:#F2F5EF;">
 <table class="shell" role="presentation" width="840" cellpadding="0" cellspacing="0" border="0" style="width:840px;max-width:100%;border-collapse:collapse;background:#F2F5EF;border-top:1px solid #D9E4D3;border-bottom:1px solid #D9E4D3;">
@@ -33,7 +133,7 @@ img{border:0;outline:none;text-decoration:none;}
 <table class="newsletter-module" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
 <tr><td align="center" style="padding:24px 14px;">
 <table class="shell" role="presentation" width="840" cellspacing="0" cellpadding="0" border="0" style="width:840px;max-width:100%;border-collapse:separate;background:#FFFFFF;border:1px solid #D3E2CC;border-radius:23px;overflow:hidden;box-shadow:0 10px 28px rgba(16,45,92,.10);">
-<tr><td style="padding:0;background:#FFFFFF;"><img src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/CLI_banner.jpg" width="840" alt="Langfuse hero banner" style="display:block;width:840px;max-width:100%;height:auto;border:0;"></td></tr>
+<tr><td style="padding:0;background:#FFFFFF;"><img src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Langfuse_CN_banner.jpg" width="840" alt="Langfuse hero banner" style="display:block;width:840px;max-width:100%;height:auto;border:0;"></td></tr>
 <tr><td class="card-pad" style="padding:28px 44px 40px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;background:#FFFFFF;">
   
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:0;">
@@ -45,33 +145,154 @@ img{border:0;outline:none;text-decoration:none;}
 </td></tr></table>
 </td></tr>
 <tr><td align="center" valign="top" style="padding:0 0 20px;background:#F2F5EF;">
-<!-- datahub_agent -->
+<!-- datahub_agent (raw module) -->
 <table class="newsletter-module" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
 <tr><td align="center" style="padding:24px 14px;">
 <table class="shell" role="presentation" width="840" cellspacing="0" cellpadding="0" border="0" style="width:840px;max-width:100%;border-collapse:separate;background:#FFFFFF;border:1px solid #D3E2CC;border-radius:23px;overflow:hidden;box-shadow:0 10px 28px rgba(16,45,92,.10);">
-<tr><td style="padding:0;background:#E9EEF7;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;height:280px;border-collapse:collapse;"><tr><td valign="middle" style="padding:40px 44px;font-family:'Marmelad',Arial,sans-serif;"><p style="margin:0 0 6px;font-size:12px;letter-spacing:1.5px;color:#2463D4;">BANNER PLACEHOLDER · pending Grok</p><p style="margin:0;font-family:'Gloock',Georgia,serif;font-size:34px;line-height:40px;color:#1F3A2E;">DataHub Agent: Kafka via Chat</p><p style="margin:8px 0 0;font-size:17px;line-height:24px;color:#657083;">Kafka-to-Hive · Kafka-to-Kafka · RDB-to-Kafka</p></td></tr></table></td></tr>
-<tr><td class="card-pad" style="padding:42px 44px 40px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;background:#FFFFFF;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td valign="middle" style="padding:0 16px 0 0;"><h1 style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:32px;line-height:42px;font-weight:600;letter-spacing:0;color:#172033;">DataHub Agent 支援更多接入流程</h1><p style="margin:10px 0 0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:16px;line-height:24px;color:#657083;">涵盖范围扩展到多数 Kafka 接入场景。</p><p style="margin:8px 0 0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:15px;line-height:22px;color:#2463D4;">适用对象: Data mart、Marketplace 团队与数据工程师</p></td><td width="190" align="right" valign="top" style="width:190px;padding:6px 8px 0 0;"><span style="display:inline-block;padding:9px 18px;border:4px double #0B8F5C;border-radius:8px;color:#0B8F5C;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:20px;line-height:24px;font-weight:700;letter-spacing:5px;text-transform:uppercase;white-space:nowrap;transform:rotate(-6deg);-webkit-transform:rotate(-6deg);">已上线</span></td></tr></table>
+<tr><td class="datahub-hero" style="padding:0;background:#E9EEF7;">
+<div class="hero-visual">
+<img class="hero-image" src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/datahub_agent_banner.jpg" width="840" alt="橙白色 DataHub Agent 机器人踏上苔藓覆盖的科技战场，脚边扬起尘土，地面亮起琥珀色链路，远处可见浅色遗迹" style="display:block;width:100%;height:auto;border:0;">
+<div class="hero-copy datahub-hero-copy">
+<h1 class="hero-title">DataHub Agent</h1>
+<p class="hero-subtitle">对话式 Kafka 集成</p>
+<div class="hero-tags"><span class="hero-tag">Kafka-to-Hive</span><span class="hero-tag">Kafka-to-Kafka</span><span class="hero-tag">RDB-to-Kafka</span></div>
+</div></div></td></tr>
+<tr><td class="card-pad" style="padding:42px 44px 40px;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;background:#FFFFFF;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td class="datahub-heading-cell" valign="middle" style="padding:0 16px 0 0;"><h1 style="margin:0;font-family:'Gloock','Songti SC','STSong','Noto Serif CJK SC',Georgia,serif;font-size:36px;line-height:43px;font-weight:400;color:#172033;">DataHub Agent 支持更多数据集成链路</h1></td><td class="datahub-status-cell" width="190" align="right" valign="top" style="width:190px;padding:6px 8px 0 0;"><span style="display:inline-block;padding:9px 18px;border:4px double #0B8F5C;border-radius:8px;color:#0B8F5C;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:19px;line-height:24px;font-weight:700;letter-spacing:3px;text-transform:uppercase;white-space:nowrap;transform:rotate(-6deg);-webkit-transform:rotate(-6deg);">已上线</span></td></tr></table>
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:23px;">
-    <tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:1px 13px 24px 0;font-family:'Gloock',Georgia,serif;font-size:29px;line-height:32px;color:#EF4C3F;">01</td><td valign="top" style="padding:0 0 24px;border-bottom:1px solid #E8EDF5;"><h2 style="margin:0 0 6px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:24px;line-height:34px;font-weight:600;letter-spacing:0;color:#172033;">新增 <span style="white-space:nowrap;">Kafka</span> 接入流程</h2><p style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:15px;line-height:26px;letter-spacing:0;color:#657083;">DataHub Agent 新增支持三种流程，涵盖范围扩展到多数 Kafka 接入：</p><div style="margin-top:12px;line-height:0;"><span style="display:inline-block;margin:0 8px 8px 0;padding:8px 12px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:13px;line-height:18px;font-weight:500;letter-spacing:0;white-space:nowrap;">Kafka-to-Hive</span><span style="display:inline-block;margin:0 8px 8px 0;padding:8px 12px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:13px;line-height:18px;font-weight:500;letter-spacing:0;white-space:nowrap;">Kafka-to-Kafka</span><span style="display:inline-block;margin:0 8px 8px 0;padding:8px 12px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:13px;line-height:18px;font-weight:500;letter-spacing:0;white-space:nowrap;">RDB-to-Kafka</span></div></td></tr><tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:24px 13px 0 0;font-family:'Gloock',Georgia,serif;font-size:29px;line-height:32px;color:#2463D4;">02</td><td valign="top" style="padding:24px 0 0;"><h2 style="margin:0 0 6px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:24px;line-height:34px;font-weight:600;letter-spacing:0;color:#172033;">用自然语言对话获得帮助</h2><p style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:15px;line-height:26px;letter-spacing:0;color:#657083;">这些流程现在都可以通过对话描述来获得帮助，让更多日常数据接入工作集中在同一处。</p></td></tr>
+    <tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:1px 13px 24px 0;font-family:'Gloock','Songti SC','STSong','Noto Serif CJK SC',Georgia,serif;font-size:29px;line-height:32px;color:#EF4C3F;">01</td><td valign="top" style="padding:0 0 24px;border-bottom:1px solid #E8EDF5;"><h2 style="margin:0 0 6px;font-family:'Gloock','Songti SC','STSong','Noto Serif CJK SC',Georgia,serif;font-size:23px;line-height:29px;font-weight:400;color:#172033;">新增 Kafka 数据集成链路</h2><p style="margin:0;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:16px;line-height:25px;color:#657083;">DataHub Agent 现已支持更多数据集成链路，覆盖更多 Kafka 集成场景：</p><div style="margin-top:12px;line-height:0;"><span style="display:inline-block;margin:0 8px 8px 0;padding:10px 14px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:16px;line-height:22px;font-weight:700;white-space:nowrap;">Kafka-to-Hive</span><span style="display:inline-block;margin:0 8px 8px 0;padding:10px 14px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:16px;line-height:22px;font-weight:700;white-space:nowrap;">Kafka-to-Kafka</span><span style="display:inline-block;margin:0 8px 8px 0;padding:10px 14px;border-radius:8px;background:#E8F0FE;border:1px solid #B9CFF5;color:#1F4FB8;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:16px;line-height:22px;font-weight:700;white-space:nowrap;">RDB-to-Kafka</span></div></td></tr><tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:24px 13px 0 0;font-family:'Gloock','Songti SC','STSong','Noto Serif CJK SC',Georgia,serif;font-size:29px;line-height:32px;color:#2463D4;">02</td><td valign="top" style="padding:24px 0 0;"><h2 style="margin:0 0 6px;font-family:'Gloock','Songti SC','STSong','Noto Serif CJK SC',Georgia,serif;font-size:23px;line-height:29px;font-weight:400;color:#172033;">通过自然语言对话获得帮助</h2><p style="margin:0;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:16px;line-height:25px;color:#657083;">只需通过对话描述需求，即可获得上述链路的操作帮助，在同一入口完成更多日常数据集成工作。</p></td></tr>
   </table>
-  <table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:34px auto 0;border-collapse:collapse;"><tr><td style="padding:0 8px;"><a class="button" href="https://datasuite.shopee.io/datahub/normal/home" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#2463D4;box-shadow:0 4px 0 #173F98;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">试用 DataHub Agent ↗</a></td></tr></table>
+  <table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:34px auto 0;border-collapse:collapse;"><tr><td style="padding:0 8px;"><a class="button" href="https://datasuite.shopee.io/datahub/normal/home" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#2463D4;box-shadow:0 4px 0 #173F98;color:#FFFFFF;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">体验 DataHub Agent ↗</a></td></tr></table>
 </td></tr>
 </table>
 </td></tr></table>
 </td></tr>
 <tr><td align="center" valign="top" style="padding:0 0 20px;background:#F2F5EF;">
-<!-- ram -->
+<!-- ram (raw module) -->
 <table class="newsletter-module" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
 <tr><td align="center" style="padding:24px 14px;">
 <table class="shell" role="presentation" width="840" cellspacing="0" cellpadding="0" border="0" style="width:840px;max-width:100%;border-collapse:separate;background:#FFFFFF;border:1px solid #D3E2CC;border-radius:23px;overflow:hidden;box-shadow:0 10px 28px rgba(16,45,92,.10);">
-<tr><td style="padding:0;background:#EAF1FF;border-bottom:1px solid #D6E3FA;"><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td valign="middle" style="padding:52px 44px 48px;"><p style="margin:0 0 10px;font-family:'Marmelad',Arial,sans-serif;font-size:12px;line-height:16px;letter-spacing:1.5px;text-transform:uppercase;color:#2463D4;">RAM</p><p style="margin:0;font-family:'Gloock',Georgia,serif;font-size:38px;line-height:44px;color:#1F3A2E;">RAM: HDFS Alert Improvements</p><p style="margin:10px 0 0;font-family:'Marmelad',Arial,sans-serif;font-size:17px;line-height:25px;color:#657083;max-width:560px;">Split alerts · Multi-round detection · Seatalk DM</p><span style="display:inline-block;margin-top:16px;padding:7px 14px;border-radius:999px;background:#2463D4;color:#FFFFFF;font-family:'Marmelad',Arial,sans-serif;font-size:13px;line-height:16px;letter-spacing:.3px;">Fewer false alarms</span></td></tr></table></td></tr>
+<tr><td class="ram-hero" style="padding:0;background:#E9EEF7;">
+<div class="hero-visual">
+<img class="hero-image" src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/ram_banner.jpg" width="840" alt="浅色森林地图位于画面右侧，包含数据、告警和消息三个地标" style="display:block;width:100%;height:auto;border:0;">
+<div class="hero-copy ram-hero-copy">
+<h1 class="hero-title">RAM</h1>
+<p class="hero-subtitle">HDFS 告警优化</p>
+<div class="hero-tags"><span class="hero-tag">HDFS 告警</span><span class="hero-tag">SeaTalk 机器人消息</span></div>
+</div></div></td></tr>
+<tr><td class="card-pad" style="padding:28px 44px 40px;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;background:#FFFFFF;">
+  
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:0;">
+<tr><td>
+<div class="ram-panel">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" class="ram-panel-header">
+<tr><td valign="middle"><h2 class="ram-panel-title">HDFS 告警</h2></td><td align="right" valign="middle"><span class="live-stamp">已上线</span></td></tr>
+</table>
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" class="ram-list">
+<tr><td class="number-cell"><span class="number-dot">1</span></td><td class="ram-item-text">分别设置存储容量和文件数量的使用告警</td></tr>
+<tr><td class="number-cell"><span class="number-dot">2</span></td><td class="ram-item-text">引入连续多轮检测机制，降低误报率</td></tr>
+<tr><td class="number-cell"><span class="number-dot">3</span></td><td class="ram-item-text">支持为不同通知渠道配置允许发送通知的时间段。</td></tr>
+</table>
+</div>
+<div class="ram-message"><p>所有告警类型均支持通过 SeaTalk 私聊机器人接收通知。</p></div>
+</td></tr>
+  </table>
+  <table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:34px auto 0;border-collapse:collapse;"><tr><td style="padding:0 8px;"><a class="button" href="https://datasuite.shopee.io/ram/project-management" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#2463D4;box-shadow:0 4px 0 #173F98;color:#FFFFFF;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">打开 RAM ↗</a></td></tr></table>
+</td></tr>
+</table>
+</td></tr></table>
+</td></tr>
+<tr><td align="center" valign="top" style="padding:0 0 20px;background:#F2F5EF;">
+<!-- cli (raw module) -->
+<table class="newsletter-module" id="di-cli-v1-2" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
+<tr><td align="center" style="padding:24px 14px;">
+<table class="shell" role="presentation" width="840" cellspacing="0" cellpadding="0" border="0" style="width:840px;max-width:100%;border-collapse:separate;background:#FFFFFF;border:1px solid #D3E2CC;border-radius:23px;overflow:hidden;box-shadow:0 10px 28px rgba(16,45,92,.10);">
+<tr><td class="cli-hero" style="padding:0;background:#EBEEE4;">
+<div class="hero-visual">
+<img class="hero-image" src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/CLI_banner.jpg" width="840" alt="白发 CLI 小男孩手持终端，在着陆舱旁探索异星生态中的发光节点与连接链路" style="display:block;width:100%;height:auto;border:0;">
+<div class="hero-copy cli-hero-copy">
+<div class="cli-hero-heading">
+<h1 class="hero-title">DI CLI V1.2</h1>
+<span class="live-stamp cli-live-stamp">已上线</span>
+</div>
+<p class="cli-hero-subtitle">全新功能</p>
+<div class="cli-feature-cards">
+<span class="hero-tag cli-feature-card">SLA 实例详情查询</span>
+<span class="hero-tag cli-feature-card">Kafka Topic 申请管理</span>
+<span class="hero-tag cli-feature-card">资源治理能力集成</span>
+<span class="hero-tag cli-feature-card">DataHub 任务管理扩展</span>
+</div>
+</div>
+</div>
+</td></tr>
+<tr><td class="card-pad cli-content" style="padding:34px 44px 40px;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;background:#FFFFFF;">
+<table class="cli-updates" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#EF4C3F;">01</td>
+<td class="cli-detail" valign="top"><h2>SLA 实例详情查询</h2><p>CLI 现已支持查询 SLA 实例详情，包括实例状态、完成时间、最慢路径、目标任务实例等。基于这些信息，你的个人 Agent 可以分析瓶颈并提供优化建议。</p></td>
+</tr>
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#2463D4;">02</td>
+<td class="cli-detail" valign="top"><h2>Kafka Topic 申请管理</h2><p>提交并跟踪 Kafka 权限、带宽配额及保留容量调整申请。</p></td>
+</tr>
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#00A96B;">03</td>
+<td class="cli-detail" valign="top"><h2>资源治理能力集成</h2><p>通过 CLI 获取 HDFS 资产及 Presto / Batch YARN 治理任务的详情。</p>
+<p class="cli-follow-on">通过 CLI 查询 Hive 表的非 Hive 下游依赖。</p></td>
+</tr>
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#EF4C3F;">04</td>
+<td class="cli-detail" valign="top"><h2>DataHub 任务管理扩展</h2><p>通过 CLI 创建、操作和维护以下类型的数据集成任务：</p>
+<div class="cli-flow-tags"><span>Kafka-to-Hive</span><span>Hive-to-Hive</span><span>MySQL-to-Hive</span><span>MySQL-to-Paimon</span></div></td>
+</tr>
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#2463D4;">05</td>
+<td class="cli-detail" valign="top"><h2>非 SQL Spark 作业：interactive 与 batch 快捷命令（Shortcut Commands）</h2><p>新增支持 <code>+sql</code> batch 模式，以及 <code>+python</code> 和 <code>+scala</code> 的 interactive 与 batch 快捷命令。</p>
+<p class="cli-follow-on">快捷命令可将多个操作合并为一条命令。</p></td>
+</tr>
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#00A96B;">06</td>
+<td class="cli-detail" valign="top"><h2>Graph 管理</h2><p>重点支持 Graph 空间及顶点／边模型的创建、更新和安全删除。</p></td>
+</tr>
+<tr>
+<td class="cli-number" valign="top" width="52" style="color:#EF4C3F;">07</td>
+<td class="cli-detail" valign="top"><h2>其他更新</h2><div class="cli-subsection"><h3>DataMap 增强：任务信息检索与问答</h3><p>针对输出或目标与指定 Hive 表直接关联的任务进行问答，了解任务代码、状态、负责人等信息。</p></div>
+<div class="cli-subsection"><h3>Data Service API 创建与配置</h3><p>通过 CLI，基于经过验证的 Presto / ClickHouse SQL 创建 Data Service API，完成 API 配置，并获取用于外部或 Portal 访问的 API 标识。</p></div></td>
+</tr>
+</table>
+<table class="cli-actions" role="presentation" width="100%" align="center" cellspacing="0" cellpadding="0" border="0" style="width:100%;max-width:560px;border-collapse:collapse;margin:34px auto 0;">
+<tr>
+<td width="50%" align="center" style="width:50%;padding:0 8px 0 0;">
+<a class="button" href="https://cli.data-infra.shopee.io/" target="_blank" rel="noreferrer" style="display:block;padding:14px 29px;border-radius:999px;background:#2463D4;box-shadow:0 4px 0 #173F98;color:#FFFFFF;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">打开 CLI ↗</a>
+</td>
+<td width="50%" align="center" style="width:50%;padding:0 0 0 8px;">
+<a class="button" href="https://link.seatalk.io/group/open?invite_id=IkaYSKrlQS6SmkTenj4aBdpd5cpcCWFJDcTBAC0wIVETDidJrx0r9xfuEcSCs8c8ZcJh7lwPMvErGiGGv7-G" target="_blank" rel="noreferrer" style="display:block;padding:14px 29px;border-radius:999px;border:1px solid #2463D4;background:#FFFFFF;box-shadow:0 4px 0 #173F98;color:#2463D4;font-family:'Marmelad','PingFang SC','Microsoft YaHei',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">加入 CLI 社群 ↗</a>
+</td>
+</tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+<tr><td align="center" valign="top" style="padding:0 14px 16px;background:#F2F5EF;">
+<table class="shell" role="presentation" width="840" cellpadding="0" cellspacing="0" border="0" style="width:840px;max-width:100%;border-collapse:collapse;background:#F2F5EF;border-top:1px solid #D9E4D3;border-bottom:1px solid #D9E4D3;">
+<tr><td style="padding:34px 44px 32px;">
+<p style="margin:0 0 12px;font-family:'Marmelad',Arial,sans-serif;font-size:17px;line-height:22px;color:#2463D4;letter-spacing:1px;">即将推出</p>
+<h2 style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:38px;line-height:50px;font-weight:600;letter-spacing:0;color:#1F3A2E;">10 月 即将上线</h2>
+</td></tr></table></td></tr>
+<tr><td align="center" valign="top" style="padding:0 0 20px;background:#F2F5EF;">
+<!-- diana -->
+<table class="newsletter-module" role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:#F2F5EF;">
+<tr><td align="center" style="padding:24px 14px;">
+<table class="shell" role="presentation" width="840" cellspacing="0" cellpadding="0" border="0" style="width:840px;max-width:100%;border-collapse:separate;background:#FFFFFF;border:1px solid #D3E2CC;border-radius:23px;overflow:hidden;box-shadow:0 10px 28px rgba(16,45,92,.10);">
+<tr><td style="padding:0;background:#FFFFFF;"><img src="https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/diana_banner_text_zh.jpg" width="840" alt="Diana 2.8 hero banner" style="display:block;width:840px;max-width:100%;height:auto;border:0;"></td></tr>
 <tr><td class="card-pad" style="padding:28px 44px 40px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;background:#FFFFFF;">
   
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:0;">
-    <tr><td style="padding:0 0 0;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA" style="width:100%;border-collapse:separate;border-spacing:0;background:#F5F7FA;border:1px solid #D9E1EA;border-radius:12px;overflow:hidden;"><tr><td width="4" bgcolor="#2463D4" style="width:4px;background:#2463D4;font-size:0;line-height:0;">&nbsp;</td><td style="padding:14px 16px 16px 15px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td valign="middle"><span style="display:inline-block;padding:6px 12px;border-radius:6px;background:#2463D4;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:13px;line-height:19px;font-weight:600;letter-spacing:0;">HDFS 告警</span></td><td align="right" valign="top"><span style="display:inline-block;padding:9px 18px;border:4px double #0B8F5C;border-radius:8px;color:#0B8F5C;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:20px;line-height:24px;font-weight:700;letter-spacing:5px;text-transform:uppercase;white-space:nowrap;transform:rotate(-6deg);-webkit-transform:rotate(-6deg);">已上线</span></td></tr></table><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:10px;"><tr><td width="26" valign="top" style="width:26px;padding:6px 8px 9px 2px;"><span style="display:inline-block;width:18px;height:18px;border-radius:999px;background:#2463D4;color:#FFFFFF;font-family:'Marmelad',Arial,sans-serif;font-size:11px;line-height:18px;text-align:center;">✓</span></td><td valign="top" style="padding:2px 0 9px 0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:26px;font-weight:600;letter-spacing:0;color:#172033;">存储用量与文件数用量告警拆分</td></tr><tr><td width="26" valign="top" style="width:26px;padding:13px 8px 9px 2px;"><span style="display:inline-block;width:18px;height:18px;border-radius:999px;background:#2463D4;color:#FFFFFF;font-family:'Marmelad',Arial,sans-serif;font-size:11px;line-height:18px;text-align:center;">✓</span></td><td valign="top" style="padding:9px 0 9px 0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:26px;font-weight:600;letter-spacing:0;color:#172033;">连续多轮检测机制</td></tr><tr><td width="26" valign="top" style="width:26px;padding:13px 8px 0 2px;"><span style="display:inline-block;width:18px;height:18px;border-radius:999px;background:#2463D4;color:#FFFFFF;font-family:'Marmelad',Arial,sans-serif;font-size:11px;line-height:18px;text-align:center;">✓</span></td><td valign="top" style="padding:9px 0 0 0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:26px;font-weight:600;letter-spacing:0;color:#172033;">各渠道可设置允许通知时间段</td></tr></table></td></tr></table></td></tr><tr><td style="padding:14px 0 0;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" bgcolor="#F5F7FA" style="width:100%;border-collapse:separate;border-spacing:0;background:#F5F7FA;border:1px solid #D9E1EA;border-radius:12px;overflow:hidden;"><tr><td width="4" bgcolor="#00A96B" style="width:4px;background:#00A96B;font-size:0;line-height:0;">&nbsp;</td><td style="padding:14px 16px 16px 15px;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td valign="middle"><span style="display:inline-block;padding:6px 12px;border-radius:6px;background:#00A96B;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:13px;line-height:19px;font-weight:600;letter-spacing:0;">所有告警类型</span></td></tr></table><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:10px;"><tr><td width="26" valign="top" style="width:26px;padding:6px 8px 0 2px;"><span style="display:inline-block;width:18px;height:18px;border-radius:999px;background:#00A96B;color:#FFFFFF;font-family:'Marmelad',Arial,sans-serif;font-size:11px;line-height:18px;text-align:center;">✓</span></td><td valign="top" style="padding:2px 0 0 0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:26px;font-weight:600;letter-spacing:0;color:#172033;"><span style="white-space:nowrap;">Seatalk</span> 私信机器人</td></tr></table></td></tr></table></td></tr>
+    <tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:1px 13px 24px 0;font-family:'Gloock',Georgia,serif;font-size:29px;line-height:32px;color:#EF4C3F;">01</td><td valign="top" style="padding:0 0 24px;border-bottom:1px solid #E8EDF5;"><table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;"><tr><td valign="top"><h2 style="margin:0 0 6px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:24px;line-height:34px;font-weight:600;letter-spacing:0;color:#172033;">可扩展的数据导出</h2><p style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:15px;line-height:26px;letter-spacing:0;color:#657083;">Diana 现支持将 Query Step 结果导出为 CSV、Excel 或 Google Sheet。大规模数据通过可复用快照和可恢复的后台任务处理，并明确展示行数限制、截断原因及权限校验结果。</p></td><td width="170" align="right" valign="top" style="width:170px;padding:0 8px 0 12px;"><span style="display:inline-block;padding:9px 18px;border:4px double #2463D4;border-radius:8px;color:#2463D4;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:20px;line-height:24px;font-weight:700;letter-spacing:5px;text-transform:uppercase;white-space:nowrap;transform:rotate(-6deg);-webkit-transform:rotate(-6deg);">即将上线</span></td></tr></table></td></tr><tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:24px 13px 24px 0;font-family:'Gloock',Georgia,serif;font-size:29px;line-height:32px;color:#2463D4;">02</td><td valign="top" style="padding:24px 0 24px;border-bottom:1px solid #E8EDF5;"><h2 style="margin:0 0 6px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:24px;line-height:34px;font-weight:600;letter-spacing:0;color:#172033;">智能跨 <span style="white-space:nowrap;">Topic</span> 路由</h2><p style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:15px;line-height:26px;letter-spacing:0;color:#657083;">Topic Router 会判断问题能否由当前 Topic 回答，或是否需要补充其他 Topic。系统执行查询前，用户可以查看并确认建议范围；同时可通过 @ Topic 搜索和引用有权限访问的 Topic。</p></td></tr><tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:24px 13px 0 0;font-family:'Gloock',Georgia,serif;font-size:29px;line-height:32px;color:#00A96B;">03</td><td valign="top" style="padding:24px 0 0;"><h2 style="margin:0 0 6px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:24px;line-height:34px;font-weight:600;letter-spacing:0;color:#172033;">可分享的 <span style="white-space:nowrap;">Report</span> 追问会话</h2><p style="margin:0;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:15px;line-height:26px;letter-spacing:0;color:#657083;">通过“Continue in Chat”产生的 Report 追问会话现在会作为标准 Chat Session 处理。Owner 可沿用现有 Session Share 流程进行分享，被分享者则可以安全地以只读方式查看完整的追问历史。</p></td></tr>
   </table>
-  <table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:34px auto 0;border-collapse:collapse;"><tr><td style="padding:0 8px;"><a class="button" href="https://datasuite.shopee.io/ram/project-management" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#2463D4;box-shadow:0 4px 0 #173F98;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">开启 RAM ↗</a></td></tr></table>
+  <table role="presentation" align="center" cellspacing="0" cellpadding="0" border="0" style="margin:34px auto 0;border-collapse:collapse;"><tr><td style="padding:0 8px;"><a class="button" href="https://datasuite.staging.shopee.io/diana2/topics" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#2463D4;box-shadow:0 4px 0 #173F98;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">打开 Diana ↗</a></td><td style="padding:0 8px;"><a class="button" href="https://link.seatalk.io/group/open?invite_id=IkaYSKrlQY01mki1TT4aBdpd5cpcCWFJDrCvBSNaMkx8cytaygsr7hD8AdXi39SVWe9XKx0rulvYQzyW-ThT" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#5B8DEF;box-shadow:0 4px 0 #3E6FC7;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">Diana 社群 ↗</a></td><td style="padding:0 8px;"><a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSdmi9BL4wyAIUTGK-A4KMe0rCVzkEsWCns5G3C-6HL9mG8IBA/viewform?usp=header" target="_blank" rel="noreferrer" style="display:inline-block;height:48px;box-sizing:border-box;padding:14px 29px;border-radius:999px;background:#5B8DEF;box-shadow:0 4px 0 #3E6FC7;color:#FFFFFF;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',Arial,sans-serif;font-size:17px;line-height:20px;text-align:center;text-decoration:none;white-space:nowrap;">给我们反馈 ↗</a></td></tr></table>
 </td></tr>
 </table>
 </td></tr></table>

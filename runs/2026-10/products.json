@@ -8,24 +8,24 @@
       "zh": "2026 年 10 月号"
     },
     "next_month": {
-      "en": "November",
-      "zh": "11 月"
+      "en": "October",
+      "zh": "10 月"
     },
     "preheader": {
       "en": "Langfuse V4 developer experience, DataHub Agent Kafka flows, and smarter RAM alerts — the latest Data Infrastructure product updates.",
       "zh": "Langfuse V4 开发体验、DataHub Agent Kafka 流程、更聪明的 RAM 告警 — Data Infra 最新产品更新。"
     },
-    "hero_banner": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Hero%20Banner.jpg",
+    "hero_banner": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Hero%20Banner.png",
     "intro": {
       "en": [
         "Dear colleagues,",
-        "Welcome to the third edition of the Data Infra Monthly Newsletter!",
-        "This month is about #OperateSmarter: Langfuse gets a faster, V4-first developer experience, DataHub Agent learns Kafka ingestion flows, and RAM's HDFS alerts become sharper and quieter. Fewer clicks, fewer false alarms, more time for the work that matters."
+        "Welcome to the latest edition of the Data Infra Monthly Newsletter!",
+        "This month’s highlights center around three themes: #AnalyzeSmarter, #BuildFaster, and #OperateWithConfidence. From Diana 2.8’s more scalable and connected analytics experience to expanded CLI and DataHub Agent capabilities, faster Langfuse performance, and more reliable resource alerts, these updates are designed to simplify data workflows, accelerate development, and help teams operate with greater efficiency and confidence."
       ],
       "zh": [
-        "各位同事好，",
-        "欢迎阅读第三期 Data Infra 月报！",
-        "本月主题是 #OperateSmarter：Langfuse 带来更快、以 V4 为核心的开发体验，DataHub Agent 学会了 Kafka 数据接入流程，RAM 的 HDFS 告警也更精准、更安静。更少点击、更少误报，把时间留给真正重要的工作。"
+        "各位同事，大家好！",
+        "欢迎阅读最新一期《Data Infra 月度通讯》！",
+        "本月更新围绕三大主题展开：#AnalyzeSmarter、#BuildFaster 和 #OperateWithConfidence。从 Diana 2.8 更具扩展性、连接性的分析体验，到持续增强的 CLI 与 DataHub Agent 能力，再到更高效的 Langfuse 性能和更可靠的资源告警，这些更新旨在简化数据工作流程、加速开发，并帮助团队更高效、更有信心地开展工作。"
       ]
     },
     "theme": {
@@ -38,34 +38,21 @@
     },
     "theme_note": "October 2026: jungle/nature theme (low-saturation green canvas, green card outlines, blue accents kept).",
     "hero_owner": "skill",
-    "hero_note": "Generated with Grok from the team's jungle group shot (all four mascots), title + 'Newsletter Oct 2026 Release' pill, approved 2026-09-25.",
+    "hero_note": "Replaced 2026-09-30 with Hero Banner.png (team-supplied).",
     "release_month": {
       "en": "September",
       "zh": "9 月"
+    },
+    "extra_css": {
+      "en": [
+        "raw/final_cards.css"
+      ],
+      "zh": [
+        "raw/final_cards_zh.css"
+      ]
     }
   },
   "products": [
-    {
-      "id": "diana",
-      "name": "Diana",
-      "mascot": "diana_dgc_girl",
-      "status": "live",
-      "skip": true,
-      "skip_reason": "Pending PRD from the Diana team — copy for 2.8 will be written from the PRD (not the sheet) once it arrives. Keep skip=true until then.",
-      "source_rows": [
-        2
-      ],
-      "copy": {
-        "en": null,
-        "zh": null
-      },
-      "banner": {
-        "image": null,
-        "approved": false,
-        "attempts": []
-      },
-      "buttons": []
-    },
     {
       "id": "langfuse",
       "name": "Langfuse",
@@ -234,7 +221,10 @@
         "audience_tags": [],
         "pose": "octopus racing forward with a speed-line trail, one tentacle holding a stopwatch, another a terminal window showing 'di-cli'",
         "prompt": null,
-        "image": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/CLI_banner.jpg",
+        "image": {
+          "en": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Langfuse_banner.jpg",
+          "zh": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Langfuse_CN_banner.jpg"
+        },
         "approved": true,
         "attempts": [
           {
@@ -270,7 +260,8 @@
         ],
         "approved_on": "2026-09-25",
         "style": "jungle theme: 3D rainforest background, original flat-cartoon octopus, hand-lettered cream headline with soft green shadow, frosted-glass pills with forest-green text",
-        "note": "Grok refuses the hyphen in 'di-cli' (renders 'di CLI' or 'di-chevron cli'); team accepted 'di CLI' (matches DI CLI headband)."
+        "note": "Approved 2026-09-25; re-uploaded as Langfuse_banner.jpg on 2026-09-30 after CLI_banner.jpg was overwritten.",
+        "zh_note": "Simplified-Chinese banner generated in Grok 2026-09-30 from a text-free re-render of the approved EN scene: headline 'Langfuse / 全速迈向 V4', pills di CLI 优先 · Prompts 提速约 9 倍 · V4 迁移提醒 · V4.35.0; one pill needed a text fix, one spacing edit."
       },
       "buttons": [
         {
@@ -300,7 +291,7 @@
           "features": [
             {
               "name": "Kafka Ingestion Flows Added",
-              "desc": "DataHub Agent now supports three more flows, extending its coverage to include many of the Kafka ingestions:",
+              "desc": "DataHub Agent now supports more flows, extending its coverage to include many of the Kafka ingestions:",
               "bullets": [
                 "Kafka-to-Hive",
                 "Kafka-to-Kafka",
@@ -321,7 +312,7 @@
           "features": [
             {
               "name": "新增 Kafka 接入流程",
-              "desc": "DataHub Agent 新增支持三种流程，涵盖范围扩展到多数 Kafka 接入：",
+              "desc": "DataHub Agent 新增支持更多流程，涵盖范围扩展到多数 Kafka 接入：",
               "bullets": [
                 "Kafka-to-Hive",
                 "Kafka-to-Kafka",
@@ -347,11 +338,11 @@
         ],
         "pose": "robot catching a stream of glowing data packets flowing from a Kafka-style pipeline into a Hive bucket, other fist raised",
         "prompt": null,
-        "image": null,
-        "approved": false,
+        "image": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/datahub_agent_banner.jpg",
+        "approved": true,
         "attempts": [],
         "owner": "external",
-        "note": "Banner produced by another team member (2026-09-25 decision). Drop the GitHub raw URL into banner.image and rebuild."
+        "note": "Scene-only banner from colleague's final HTML; EN card overlays title/tags with their CSS (raw module). Baked-text variant rejected by team 2026-09-30."
       },
       "buttons": [
         {
@@ -361,7 +352,11 @@
           },
           "url": "https://datasuite.shopee.io/datahub/normal/home"
         }
-      ]
+      ],
+      "raw_module": {
+        "en": "raw/datahub_agent_final.html",
+        "zh": "raw/datahub_agent_final_zh.html"
+      }
     },
     {
       "id": "ram",
@@ -373,7 +368,7 @@
         12
       ],
       "release_note": "Released in September",
-      "notes": "No mascot — text-only banner. Grouped layout, titles only: descriptions removed by team request (kept as desc_source for the record); no numerals.",
+      "notes": "EN + ZH cards = colleague's final raw modules.",
       "copy": {
         "en": {
           "title": "RAM: Alert Improvements",
@@ -381,22 +376,22 @@
           "audience": null,
           "features": [
             {
-              "name": "Separate Storage and File-Count Usage Alerts",
+              "name": "Separate Storage and File Count usage alert",
               "group": "HDFS alerts",
               "desc_source": "Storage usage and file-count usage are now alerted separately."
             },
             {
-              "name": "Multiple Consecutive Rounds of Detection",
+              "name": "Implement a mechanism for multiple consecutive rounds of detection to reduce the false alarm rate",
               "group": "HDFS alerts",
               "desc_source": "An alert now requires several consecutive detection rounds, reducing the false alarm rate."
             },
             {
-              "name": "Allowed Notification Times per Channel",
+              "name": "Supports configuring allowed notification times for different channels.",
               "group": "HDFS alerts",
               "desc_source": "Configure the time windows in which each notification channel is allowed to send alerts."
             },
             {
-              "name": "Seatalk Private Bot Messages",
+              "name": "For all alert type, support Seatalk private bot message to receive the alert.",
               "group": "All alert types",
               "desc_source": "Alerts of every type can now be received via Seatalk private bot message."
             }
@@ -409,7 +404,7 @@
         },
         "zh": {
           "title": "RAM：告警优化",
-          "subtitle": "HDFS 告警的三项改动，加上所有告警类型支援 Seatalk 私信机器人。",
+          "subtitle": "HDFS 告警的三项改动，加上所有告警类型支持 Seatalk 私信机器人。",
           "audience": null,
           "features": [
             {
@@ -447,10 +442,12 @@
         "audience_tags": [],
         "pose": null,
         "prompt": null,
-        "image": null,
-        "approved": false,
+        "image": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/ram_banner.jpg",
+        "approved": true,
         "attempts": [],
-        "text_only": true
+        "text_only": false,
+        "owner": "external",
+        "note": "Scene-only banner from colleague's final HTML; EN card overlays title/tags with their CSS (raw module). Baked-text variant rejected by team 2026-09-30."
       },
       "buttons": [
         {
@@ -460,7 +457,233 @@
           },
           "url": "https://datasuite.shopee.io/ram/project-management"
         }
-      ]
+      ],
+      "raw_module": {
+        "en": "raw/ram_final.html",
+        "zh": "raw/ram_final_zh.html"
+      }
+    },
+    {
+      "id": "cli",
+      "name": "DI CLI V1.2",
+      "mascot": "cli_boy",
+      "status": "live",
+      "skip": false,
+      "source_rows": [
+        "colleague final HTML 2026-09-30"
+      ],
+      "raw_module": {
+        "en": "raw/cli_final.html",
+        "zh": "raw/cli_final_zh.html"
+      },
+      "copy": {
+        "en": {
+          "title": "DI CLI V1.2",
+          "subtitle": "SLA lookups, Kafka topic requests, resource governance and more ingestion task types — from your terminal.",
+          "audience": null,
+          "features": [
+            {
+              "name": "SLA Instance Info Lookup",
+              "desc": "The CLI now supports detailed SLA instance lookups, including instance status, completion time, slowest path, target task instances, etc. Based on this information, your personal Agent can analyze bottlenecks and provide optimization suggestions."
+            },
+            {
+              "name": "Kafka Topic Request Management",
+              "desc": "Submit and track Kafka permission, bandwidth quota and retention size adjustment requests."
+            },
+            {
+              "name": "Resource Governance Integration",
+              "bullets": [
+                "Get the details for HDFS assets and Presto/Batch YARN governance tasks via CLI.",
+                "Explore non-Hive downstreams of a Hive table via CLI."
+              ]
+            },
+            {
+              "name": "Expanded DataHub Task Management",
+              "desc": "Users can create, operate, and maintain ingestion task types through the CLI, including:",
+              "bullets": [
+                "Kafka-to-Hive",
+                "Hive-to-Hive",
+                "MySQL-to-Hive",
+                "MySQL-to-Paimon"
+              ],
+              "bullets_style": "chips"
+            },
+            {
+              "name": "Interactive and Batch Support for Non-SQL Spark Workloads (Shortcut Commands)",
+              "desc": "Expanded support includes +sql batch mode and interactive and batch shortcut commands for +python and +scala. Shortcut commands combine multiple operations into a single command."
+            },
+            {
+              "name": "Graph Management",
+              "desc": "Key updates focus on creating, updating, and safely deleting graph spaces and vertex/edge models."
+            },
+            {
+              "name": "Others",
+              "bullets": [
+                "DataMap Enhancement: Task Information Search & Ask — ask about tasks whose outputs or targets are directly associated with a specific Hive table, including task code, status, owner, etc.",
+                "Data Service API Creation & Configuration — create Data Service APIs from verified Presto/ClickHouse SQL via CLI, configure API settings, and receive an API identifier for external or Portal access."
+              ]
+            }
+          ]
+        },
+        "zh": {
+          "title": "DI CLI V1.2",
+          "subtitle": "SLA 查询、Kafka topic 申请、资源治理与更多接入任务类型，都在终端完成。",
+          "audience": null,
+          "features": [
+            {
+              "name": "SLA 实例信息查询",
+              "desc": "CLI 现支持详细的 SLA 实例查询，包括实例状态、完成时间、最慢路径、目标任务实例等。基于这些信息，你的个人 Agent 可以分析瓶颈并给出优化建议。"
+            },
+            {
+              "name": "Kafka Topic 申请管理",
+              "desc": "提交并跟踪 Kafka 权限、带宽配额和保留大小的调整申请。"
+            },
+            {
+              "name": "资源治理集成",
+              "bullets": [
+                "通过 CLI 获取 HDFS 资产以及 Presto/Batch YARN 治理任务的详情。",
+                "通过 CLI 探索 Hive 表的非 Hive 下游。"
+              ]
+            },
+            {
+              "name": "扩展 DataHub 任务管理",
+              "desc": "用户可通过 CLI 创建、运维接入任务，类型包括：",
+              "bullets": [
+                "Kafka-to-Hive",
+                "Hive-to-Hive",
+                "MySQL-to-Hive",
+                "MySQL-to-Paimon"
+              ],
+              "bullets_style": "chips"
+            },
+            {
+              "name": "非 SQL Spark 工作负载的交互与批处理支持（快捷命令）",
+              "desc": "新增 +sql 批处理模式，以及 +python 与 +scala 的交互式和批处理快捷命令。快捷命令把多个操作合并为一条命令。"
+            },
+            {
+              "name": "图管理",
+              "desc": "重点更新为图空间及点/边模型的创建、更新与安全删除。"
+            },
+            {
+              "name": "其他",
+              "bullets": [
+                "DataMap 增强：任务信息搜索与问答 — 查询输出或目标直接关联到指定 Hive 表的任务，包括任务代码、状态、负责人等。",
+                "Data Service API 创建与配置 — 通过 CLI 基于已验证的 Presto/ClickHouse SQL 创建 Data Service API、配置 API 设置，并获得可供外部或 Portal 访问的 API 标识。"
+              ]
+            }
+          ]
+        }
+      },
+      "banner": {
+        "image": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/CLI_banner.jpg",
+        "owner": "external",
+        "approved": true,
+        "headline": "DI CLI V1.2",
+        "note": "Scene-only banner from colleague's final HTML; EN card overlays title/tags with their CSS (raw module). Baked-text variant rejected by team 2026-09-30."
+      },
+      "buttons": [
+        {
+          "label": {
+            "en": "Open CLI ↗",
+            "zh": "打开 CLI ↗"
+          },
+          "url": "https://cli.data-infra.shopee.io/"
+        },
+        {
+          "label": {
+            "en": "CLI Community ↗",
+            "zh": "CLI 社区 ↗"
+          },
+          "url": "https://link.seatalk.io/group/open?invite_id=IkaYSKrlQS6SmkTenj4aBdpd5cpcCWFJDcTBAC0wIVETDidJrx0r9xfuEcSCs8c8ZcJh7lwPMvErGiGGv7-G"
+        }
+      ],
+      "notes": "EN + ZH content taken verbatim from colleague's final HTML (2026-09-30). Claude's earlier ZH translation kept in copy.zh for the record only."
+    },
+    {
+      "id": "diana",
+      "name": "Diana 2.8",
+      "mascot": "diana_dgc_girl",
+      "status": "coming",
+      "skip": false,
+      "source_rows": [
+        "Diana2.8 EN.html / Diana2.8 CN.html (team-supplied, 2026-09-30)"
+      ],
+      "copy": {
+        "en": {
+          "title": "Diana 2.8",
+          "subtitle": "Scalable data delivery, smarter cross-topic analysis, and seamless collaboration",
+          "audience": null,
+          "status_label": "Coming Soon",
+          "features": [
+            {
+              "name": "Scalable Data Export",
+              "desc": "Diana now allows users to export Query Step results to CSV, Excel, or Google Sheets. Large datasets are processed through reusable snapshots and recoverable background tasks, with clear row limits, truncation notices, and permission checks."
+            },
+            {
+              "name": "Intelligent Cross-Topic Routing",
+              "desc": "Topic Router determines whether a question can be answered within the current Topic or requires additional Topics. Users can review and confirm the proposed scope before execution, while @ Topic provides a structured way to search for and reference accessible Topics."
+            },
+            {
+              "name": "Shareable Report Follow-up Sessions",
+              "desc": "Follow-up conversations created through “Continue in Chat” are now treated as standard Chat Sessions. Owners can share them through the existing Session Share flow, while recipients can securely view the complete conversation history in read-only mode."
+            }
+          ]
+        },
+        "zh": {
+          "title": "Diana 2.8",
+          "subtitle": "可扩展的数据交付、更智能的跨主题分析，以及无缝协作",
+          "audience": null,
+          "status_label": "即将上线",
+          "features": [
+            {
+              "name": "可扩展的数据导出",
+              "desc": "Diana 现支持将 Query Step 结果导出为 CSV、Excel 或 Google Sheet。大规模数据通过可复用快照和可恢复的后台任务处理，并明确展示行数限制、截断原因及权限校验结果。"
+            },
+            {
+              "name": "智能跨 Topic 路由",
+              "desc": "Topic Router 会判断问题能否由当前 Topic 回答，或是否需要补充其他 Topic。系统执行查询前，用户可以查看并确认建议范围；同时可通过 @ Topic 搜索和引用有权限访问的 Topic。"
+            },
+            {
+              "name": "可分享的 Report 追问会话",
+              "desc": "通过“Continue in Chat”产生的 Report 追问会话现在会作为标准 Chat Session 处理。Owner 可沿用现有 Session Share 流程进行分享，被分享者则可以安全地以只读方式查看完整的追问历史。"
+            }
+          ]
+        }
+      },
+      "banner": {
+        "image": {
+          "en": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/diana_banner_text_en.jpg",
+          "zh": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/diana_banner_text_zh.jpg"
+        },
+        "owner": "external",
+        "approved": true,
+        "note": "Team mock (2026-09-30): title 'Diana 2.8' in Gloock (matches DataHub banner; Bodoni rejected as hard to read) green #347610, white rule, subtitle Noto Sans 600 blue #324887 two lines 26px leading, soft drop shadow; centred over the right-hand sky. Baked per language; upload both JPGs to GitHub and switch to URLs.",
+        "scene_only_source": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/diana%20banner.png"
+      },
+      "buttons": [
+        {
+          "label": {
+            "en": "Open Diana ↗",
+            "zh": "打开 Diana ↗"
+          },
+          "url": "https://datasuite.staging.shopee.io/diana2/topics"
+        },
+        {
+          "label": {
+            "en": "Diana Community ↗",
+            "zh": "Diana 社群 ↗"
+          },
+          "url": "https://link.seatalk.io/group/open?invite_id=IkaYSKrlQY01mki1TT4aBdpd5cpcCWFJDrCvBSNaMkx8cytaygsr7hD8AdXi39SVWe9XKx0rulvYQzyW-ThT"
+        },
+        {
+          "label": {
+            "en": "Give us Feedback ↗",
+            "zh": "给我们反馈 ↗"
+          },
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSdmi9BL4wyAIUTGK-A4KMe0rCVzkEsWCns5G3C-6HL9mG8IBA/viewform?usp=header"
+        }
+      ],
+      "notes": "Copy verbatim from the team's Diana2.8 EN/CN HTML. Button URL is the STAGING host as given in their files — confirm before sending."
     }
   ]
 }

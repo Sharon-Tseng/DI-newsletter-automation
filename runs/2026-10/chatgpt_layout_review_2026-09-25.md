@@ -73,3 +73,8 @@ ZH title 16/23 w600, desc 13/20.
 Langfuse 01 gets the MCP & CLI settings screenshot (1999×861) full text-column width, caption
 "DI-CLI is the recommended developer entry point". New rule: sheet screenshots → ask → analyse
 → place by shape → caption (copy_guidelines → Screenshots).
+
+## 2026-09-30 (team) — colleague cards + banners
+- DataHub / RAM / DI CLI V1.2 cards integrated verbatim from the colleague's final HTML (raw_module).
+- Baked-text banner variant (bake_banner_text.py) rejected as ugly; colleague's CSS overlay kept.
+- GitHub: CLI_banner.jpg was overwritten by the CLI scene → Langfuse banner re-uploaded as Langfuse_banner.jpg.

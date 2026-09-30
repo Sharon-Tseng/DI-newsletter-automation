@@ -159,9 +159,15 @@ def resolve_img(run_dir, ref, embed):
 
 
 # ---------------------------------------------------------------- pieces
+def banner_image_ref(b, lang):
+    """banner.image may be a single ref or a per-language dict (text baked in each language)."""
+    img = b.get("image")
+    return img.get(lang) if isinstance(img, dict) else img
+
+
 def banner_block(product, lang, run_dir, embed):
     b = product.get("banner") or {}
-    src = resolve_img(run_dir, b.get("image"), embed)
+    src = resolve_img(run_dir, banner_image_ref(b, lang), embed)
     if src:
         return (
             f'<tr><td style="padding:0;background:{CARD_BG};">'
@@ -602,16 +608,38 @@ def header_block(copy, lang, show_header, audience_html, status_text, status_bg)
     return ""
 
 
+def raw_module_card(product, lang, run_dir, embed):
+    """Insert a colleague-supplied card verbatim (product.raw_module[lang] = run-relative HTML
+    file containing one <table class="newsletter-module">…</table>). Images inside are left
+    as written (relative paths or URLs); with --embed-images local ones are inlined."""
+    path = os.path.join(run_dir, product["raw_module"][lang])
+    with open(path, encoding="utf-8") as f:
+        html_mod = f.read()
+    if embed:
+        def inline(m):
+            src = m.group(1)
+            if src.startswith("http") or src.startswith("data:"):
+                return m.group(0)
+            local = os.path.normpath(os.path.join(run_dir, "out", src))
+            data = resolve_img(run_dir, local, True)
+            return m.group(0).replace(src, data) if data else m.group(0)
+        html_mod = re.sub(r'src="([^"]+)"', inline, html_mod)
+    return f'\n<tr><td align="center" valign="top" style="padding:0 0 20px;background:{CANVAS};">\n<!-- {esc(product["id"])} (raw module) -->\n{html_mod}\n</td></tr>'
+
+
 def product_card(product, lang, run_dir, embed):
+    if product.get("raw_module") and product["raw_module"].get(lang):
+        return raw_module_card(product, lang, run_dir, embed)
     copy = product["copy"][lang]
     status = product.get("status", "live")
     status_text = copy.get("status_label") or t(lang, status)
     status_bg = "#0B8F5C" if status == "live" else BLUE
     b = product.get("banner") or {}
-    has_banner = bool(resolve_img(run_dir, b.get("image"), False)) or bool(b.get("text_only"))
+    has_banner = bool(resolve_img(run_dir, banner_image_ref(b, lang), False)) or bool(b.get("text_only"))
     # Rule (team, Oct 2026): when the banner already carries the headline, subtitle and
     # audience pills, don't repeat them as text in the card — keep only the status pill.
-    show_header = product.get("show_header", not has_banner)
+    sh = product.get("show_header", not has_banner)
+    show_header = sh.get(lang, not has_banner) if isinstance(sh, dict) else sh   # per-language override allowed
     audience = copy.get("audience")
     audience_html = ""
     if audience and show_header:
@@ -650,15 +678,16 @@ def section_header(kicker, title, lang="en"):
 
 def hero_block(edition, lang, run_dir, embed):
     src = resolve_img(run_dir, edition.get("hero_banner"), embed)
+    title = esc(edition.get("title", "Data Infra What's New"))  # outside the f-strings: Python < 3.12 forbids backslashes there
     if src:
         img = (
-            f'<tr><td style="padding:0;"><img src="{esc(src)}" width="840" alt="{esc(edition.get("title", "Data Infra What\'s New"))}" '
+            f'<tr><td style="padding:0;"><img src="{esc(src)}" width="840" alt="{title}" '
             f'style="display:block;width:840px;max-width:100%;height:auto;border:0;"></td></tr>'
         )
     else:
         img = (
             f'<tr><td style="padding:48px 44px;background:#E9EEF7;font-family:{SERIF};font-size:40px;line-height:46px;color:{INK_DEEP};">'
-            f'{esc(edition.get("title", "Data Infra What\'s New"))}'
+            f'{title}'
             f'<p style="margin:8px 0 0;font-family:{SANS};font-size:13px;letter-spacing:1.5px;color:{BLUE};">HERO BANNER PLACEHOLDER · pending Grok</p></td></tr>'
         )
     intro = edition["intro"][lang]
@@ -714,9 +743,18 @@ def build(data, lang, run_dir, embed):
     edition = data["edition"]
     apply_theme(edition.get("theme"))
     products = [p for p in data["products"] if not p.get("skip")]
-    live = [p for p in products if p.get("status", "live") == "live"]
-    coming = [p for p in products if p.get("status") == "coming"]
+    def section_of(p):
+        return p.get("section") or ("coming" if p.get("status") == "coming" else "latest")
+    live = [p for p in products if section_of(p) == "latest"]
+    coming = [p for p in products if section_of(p) == "coming"]
     preview = edition.get("preheader", {}).get(lang, "")
+    extra_css = ""
+    extra = edition.get("extra_css", [])
+    if isinstance(extra, dict):
+        extra = extra.get(lang, [])
+    for css_path in extra:
+        with open(os.path.join(run_dir, css_path), encoding="utf-8") as f:
+            extra_css += "\n" + f.read()
 
     body = [hero_block(edition, lang, run_dir, embed)]
     body.append(f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;background:{CANVAS};">')
@@ -728,6 +766,8 @@ def build(data, lang, run_dir, embed):
         body.extend(product_card(p, lang, run_dir, embed) for p in coming)
     body.append("</table>")
     body.append(closing_block(edition, lang))
+    page_title = esc(edition.get("title", "Data Infra What's New"))  # kept outside the f-string for Python < 3.12
+    body_html = "".join(body)
 
     return f"""<!DOCTYPE html>
 <html lang="{t(lang,'html_lang')}" xmlns="http://www.w3.org/1999/xhtml">
@@ -735,17 +775,18 @@ def build(data, lang, run_dir, embed):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="x-apple-disable-message-reformatting">
-<title>{esc(edition.get('title','Data Infra What\'s New'))} · {esc(edition['edition_label'][lang])}</title>
+<title>{page_title} · {esc(edition['edition_label'][lang])}</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Gloock&family=Marmelad&family=Noto+Sans+SC:wght@400;700&display=swap');
 html,body{{margin:0;padding:0;background:{CANVAS};}}
 img{{border:0;outline:none;text-decoration:none;}}
 @media only screen and (max-width:840px){{ .shell,.hero-welcome-card{{width:100% !important;max-width:100% !important;}} .card-pad{{padding:28px 20px 28px !important;}} }}
+{extra_css}
 </style>
 </head>
 <body style="margin:0;padding:0;background:{CANVAS};-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
 <div style="display:none;max-height:0;overflow:hidden;opacity:0;">{esc(preview)}</div>
-{''.join(body)}
+{body_html}
 </body>
 </html>
 """

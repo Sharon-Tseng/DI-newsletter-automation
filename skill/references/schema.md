@@ -13,8 +13,9 @@ Stage 3 fills `banner.image`, Stage 4 reads everything. Editing this file and re
     "title": "Data Infra What's New",
     "edition_label": { "en": "October 2026 Edition", "zh": "2026 年 10 月號" },
     "release_month": { "en": "September", "zh": "9 月" },   // "<Month> Product Updates" section title
-    "next_month":    { "en": "November", "zh": "11 月" },   // for the "Coming in …" header
+    "next_month":    { "en": "October", "zh": "10 月" },    // "NEXT UP / Coming in <edition month>" — the month the edition is named after (things shipping this month), NOT month+1
     "theme": { "canvas": "#F2F5EF", "card_border": "#D3E2CC", "ink_deep": "#1F3A2E" },  // optional per-edition palette
+    "extra_css": ["raw/final_cards.css"],       // optional: CSS appended to <style> for raw modules
     "preheader":     { "en": "…", "zh": "…" },              // hidden email preview line
     "hero_banner": "banners/hero.jpg",         // run-relative path or URL; null → placeholder
     "intro": {                                 // paragraphs; all but the last are bold greeting lines
@@ -27,9 +28,13 @@ Stage 3 fills `banner.image`, Stage 4 reads everything. Editing this file and re
       "id": "langfuse",                        // canonical id, also the HTML comment marker
       "name": "Langfuse",
       "mascot": "langfuse_octopus",            // key in references/mascots.md, or null
-      "status": "live",                        // "live" | "coming"
+      "status": "live",                        // "live" | "coming" (drives the stamp text/colour)
+      "section": "latest",                     // AVOID — team rule (Oct 2026): every non-live product goes in the Coming section after Latest Releases
       "skip": false,                           // true → omitted from output (kept for the record)
-      "show_header": false,                    // optional; default = no banner. Title/subtitle/audience hide when a banner exists
+      "show_header": {"zh": true},             // optional; bool or per-language. Default: hidden when a banner exists.
+                                               // Use per-language when the banner carries EN text only (scene-only image in ZH).
+      "raw_module": {"en": "raw/cli_final.html"},   // optional: insert a colleague's card HTML verbatim for that language
+                                               // (one <table class="newsletter-module">…</table>; its CSS goes in edition.extra_css)
       "source_rows": [5, 6, 7, 8],
       "release_note": "Released in September",
       "copy": {
@@ -76,7 +81,7 @@ Stage 3 fills `banner.image`, Stage 4 reads everything. Editing this file and re
         "audience_tags": [],                   // pills on the banner; empty when audience is default
         "pose": "…",                           // this edition's mascot action
         "prompt": "…",                         // final prompt sent to Grok
-        "image": "banners/langfuse.jpg",       // null until approved
+        "image": "banners/langfuse.jpg",       // null until approved; or {"en": …, "zh": …} when text is baked per language
         "approved": false,
         "attempts": [ { "prompt": "…", "verdict": "user: robot too small" } ]
       },

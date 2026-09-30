@@ -120,10 +120,16 @@ are the default, and the line just adds words. When one feature out of several h
 audience (e.g. the V4 migration alert only concerns legacy-SDK projects), put that
 qualifier inside the feature's own description rather than in the card audience line.
 
-## Status
+## Status and sections (team rule, Oct 2026)
 
-`live` → the sheet says Released / 已上线 / 全量; `coming` → Expected / 即将 / 🔜. Cards in
-`coming` go under the "Coming in <next month>" section. If the sheet says a product will be
+`live` → the sheet says Released / 已上线 / 全量; `coming` → Expected / 即将 / 🔜 / "Coming
+Soon" stamp in a PIC's own card. The newsletter has exactly two product sections:
+1. **LATEST RELEASES / <release_month> Product Updates** — only `live` products.
+2. **NEXT UP / Coming in <next_month>** — **every** product that is not live, always after the
+   Latest Releases block and before the closing card. `next_month` is the month the edition is
+   named after (Oct edition → "Coming in October"), because those items ship during that month.
+Never put a coming product into the first section (the `section` override exists in the
+schema but the team rejected using it — Diana 2.8 was moved out of Latest Releases). If the sheet says a product will be
 promoted next month instead (下個月再宣傳), skip it entirely this edition. When the status
 cell is empty and the feature text exists, ask the user rather than guessing.
 
@@ -248,3 +254,33 @@ says one is available), do **not** decide alone:
 6. Hosting: for previews build with `--embed-images` (base64); for the final send, upload the
    image to `diana_email_banner/DI Newsletter/<Month>/` and switch `image.src` to the raw URL
    (email clients handle hosted images better than large base64 payloads).
+
+## Integrating cards a colleague built (rule from Sep 30, 2026)
+
+When a teammate hands over a finished card as HTML ("final" version), their content wins on
+overlaps. Don't retype it into the template: extract each `<table class="newsletter-module">`
+into `runs/<m>/raw/<product>_final.html`, pull their `<style>` rules into
+`runs/<m>/raw/final_cards.css` (drop @import/html,body/img), replace base64 images with files
+under `runs/<m>/banners/` referenced as `../banners/<file>` (7 MB of base64 otherwise), and set
+`product.raw_module.en` + `edition.extra_css`. The builder inserts the module verbatim.
+Their banners were scene-only images with CSS-positioned text (not Outlook-safe, but their
+call). If they also deliver a ZH version, integrate it the same way as `raw_module.zh` with its own
+`extra_css.zh` (the builder accepts `extra_css` as a per-language dict). Adjust only for
+edition consistency: (a) CJK fallback fonts → the ZH sans stack (they had Songti serif),
+(b) status stamp text "NOW LIVE" → "已上线" to match the template cards, (c) letter-spacing 0
+on Chinese titles. If there is no ZH version: keep the template card, reuse the scene image,
+set `show_header: {"zh": true}`, translate the copy and flag it for PIC review. Add new
+products they introduced (DI CLI V1.2) to the intro line in both languages.
+
+## Fixed buttons per product (rule from Sep 30, 2026)
+
+Every **Diana** card must end with exactly these three buttons, in this order (EN / ZH):
+1. `Open Diana ↗` / `打开 Diana ↗` → the Diana entry URL from the sheet (Oct 2026 used the
+   staging host `https://datasuite.staging.shopee.io/diana2/topics` — confirm prod vs staging).
+2. `Diana Community ↗` / `Diana 社群 ↗` →
+   `https://link.seatalk.io/group/open?invite_id=IkaYSKrlQY01mki1TT4aBdpd5cpcCWFJDrCvBSNaMkx8cytaygsr7hD8AdXi39SVWe9XKx0rulvYQzyW-ThT`
+3. `Give us Feedback ↗` / `给我们反馈 ↗` →
+   `https://docs.google.com/forms/d/e/1FAIpQLSdmi9BL4wyAIUTGK-A4KMe0rCVzkEsWCns5G3C-6HL9mG8IBA/viewform?usp=header`
+The first button renders as the primary (dark blue), the others as secondary (lighter blue).
+Other products keep their own buttons (e.g. DI CLI: Open CLI + CLI Community); add a block
+here when the team fixes a set for another product.

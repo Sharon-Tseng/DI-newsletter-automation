@@ -88,7 +88,10 @@ headings, Marmelad body, numbered 01/02/03 features, pill buttons at the card fo
 palette is per edition via `edition.theme` (Oct 2026: low-saturation jungle green canvas
 #F2F5EF, green card outlines, blue accents kept); ask for the month's theme before Stage 4.
 Rules the builder applies automatically (see references/copy_guidelines.md):
-- Section title is "<release_month> Product Updates", never "Latest".
+- Two product sections only: "LATEST RELEASES / <release_month> Product Updates" for live
+  products, then "NEXT UP / Coming in <next_month>" for **all** non-live products (Coming Soon,
+  Expected, 即将上线) — after Latest Releases, before the closing card. `next_month` = the month
+  the edition is named after (Oct edition → "Coming in October").
 - When a product has a banner (image or text-only), the card's title, subtitle and audience
   line are hidden — the banner already says them; only the stamp-style status badge stays.
 - Highlight chips are tinted brand blue, bold, and wrap instead of widening the card; an
@@ -123,6 +126,14 @@ Code + skill + runs: `https://github.com/Sharon-Tseng/DI-newsletter-automation` 
 changed during the run — the updated `skill/` files plus a re-packaged `dist/*.skill`, then
 re-upload that `.skill` to Claude. The repo README has the step-by-step.
 
+## Cards delivered by colleagues
+
+If someone hands over a finished card HTML, integrate it verbatim as a `raw_module` (rules in
+copy_guidelines → "Integrating cards a colleague built"); their content wins on overlaps.
+If their banner text is a CSS overlay, bake it into the image with
+`scripts/bake_banner_text.py` first (banner_workflow → "Baking text into banners") — overlays
+vanish in Gmail/Outlook.
+
 ## Partial requests
 
 "只改 Langfuse 文案" → open the existing `products.json`, run Stage 2 for that product only,
@@ -145,5 +156,7 @@ only. Always re-run `check_copy.py` after any copy edit.
 - Length: ≤ 300 EN words / ≤ 300 ZH chars per product card. The checker is the referee.
 - Mascot identity features never change; poses do. Reject drifted images.
 - Banner text is English in both language editions.
-- Every card ends with at least one button (entry link or guide/demo).
+- Every card ends with at least one button (entry link or guide/demo). Diana cards always
+  carry three: Open Diana, Diana Community, Give us Feedback (URLs in copy_guidelines →
+  "Fixed buttons per product").
 - Human verdict before any banner download and before any product copy is locked.
