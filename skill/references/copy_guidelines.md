@@ -226,3 +226,25 @@ uses the same outer cell padding (`0 14px`) and the same `.shell` 840px table wi
 `max-width:100%`, so their left/right edges line up at every viewport, including narrow
 mail clients where everything collapses to 100% − 28px. Verified with Playwright at 1300,
 900 and 700px; keep it that way when adding new block types.
+
+## Screenshots from the sheet (rule from Sep 30, 2026)
+
+The sheet has a 可提供的截图 column. When a row has an image (embedded, linked, or the PIC
+says one is available), do **not** decide alone:
+1. **Ask the user** at Checkpoint 2 whether to use it, showing which feature it belongs to.
+2. **Analyse the image**: pixel size, aspect ratio, what it shows (UI page, code block,
+   chart), and whether text in it stays legible at the display width. Report this in one line
+   (e.g. "1999×861, 2.32:1 landscape, settings page with readable code — fits full width").
+3. **Place it by shape**, always inside the feature it illustrates, after the text/✓ row:
+   - landscape ≥ 1.6:1 → full width of the text column (edge of the title to the edge of the
+     stamp, ≈ 687px), `image.width` unset;
+   - squarer or portrait → set `image.width` (e.g. 420) so it doesn't tower; the builder
+     centres it. Two related shots may go side by side — ask first;
+   - tiny UI crops → `width` 300–360 to avoid blurry upscaling; never upscale beyond source.
+4. **Always add a caption** underneath, centred (`image.caption`, EN + ZH): one line stating what the
+   reader is looking at or the takeaway, in the PIC's words when possible — e.g. "DI-CLI is the
+   recommended developer entry point". Captions count toward the length limit.
+5. Record `image.source` (sheet row/column) and `image.analysis` in products.json.
+6. Hosting: for previews build with `--embed-images` (base64); for the final send, upload the
+   image to `diana_email_banner/DI Newsletter/<Month>/` and switch `image.src` to the raw URL
+   (email clients handle hosted images better than large base64 payloads).

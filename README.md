@@ -6,6 +6,7 @@ The Claude skill in `skill/` holds every rule the team has agreed on; `runs/` ke
 per edition so any month can be rebuilt or resumed.
 
 ```
+CLAUDE.md                 Project memory for Claude Code — read this first in a new session
 skill/                    Skill source — edit here
   SKILL.md                4-stage workflow, checkpoints, decisions already made
   references/             copy rules, mascots, banner/Grok workflow, JSON schema, example run
@@ -14,7 +15,8 @@ skill/                    Skill source — edit here
 dist/                     data-infra-newsletter.skill — the packaged skill you upload to Claude
 runs/<YYYY-MM>/           One folder per edition
   products_raw.json       Stage 1: normalised rows from the Google Sheet
-  products.json           Single source of truth: copy, banners, theme, decisions
+  products.json           Single source of truth: copy, banners, screenshots, theme, decisions
+  images/                 feature screenshots from the sheet (local until uploaded to GitHub)
   out/                    newsletter_<month>_en.html · newsletter_<month>_zh.html
   chatgpt_layout_review_<date>.md   layout review log
 ```
@@ -71,7 +73,10 @@ Claude then walks through four checkpoints; you answer each one before it contin
    Decide: drop / chase the PIC / wait for a PRD.
 2. **Copy** — EN and 简体 copy per product, shown side by side. It edits the PIC's text, never
    invents; ≤ 300 words/chars; one main sentence + one background sentence per feature;
-   grouped layout when the sheet lists features under category headings. Say what to change;
+   grouped layout when the sheet lists features under category headings. If a row offers a
+   **screenshot** (可提供的截图 column), Claude asks you here whether to use it, reports its
+   size/aspect in one line, places it inside the feature by shape (wide landscape → full text-column
+   width; squarer → fixed width, centred) and adds a centred EN+ZH caption. Say what to change;
    say "锁定" when a product is done.
 3. **Banners (Grok Imagine, in your Chrome)** — for each banner you own:
    - Claude navigates to grok.com/imagine in its tab group; if Grok shows a login or Cloudflare check,
@@ -99,12 +104,18 @@ At the end Claude gives you `newsletter_<month>_en.html`, `newsletter_<month>_zh
 git pull
 mkdir -p runs/<YYYY-MM>/out
 # copy the files Claude produced into it:
-#   products.json, products_raw.json, out/newsletter_<month>_en.html, out/newsletter_<month>_zh.html,
+#   products.json, products_raw.json, images/ (feature screenshots, if any),
+#   out/newsletter_<month>_en.html, out/newsletter_<month>_zh.html,
 #   chatgpt_layout_review_<date>.md (if any)
 git add runs/<YYYY-MM>
 git commit -m "<Mon YYYY> edition"
 git push
 ```
+
+Never commit HTML built with `--embed-images` (base64 screenshots make the file huge) — save
+those as `*_embedded.html`, which is git-ignored. Before the **final send**, upload any local
+screenshots in `runs/<month>/images/` to `diana_email_banner/DI Newsletter/<Month>/`, switch
+each `image.src` in `products.json` to the raw URL, and rebuild without `--embed-images`.
 
 If Claude changed anything in the skill during the run (it says so — e.g. a new layout rule),
 also replace `dist/data-infra-newsletter.skill` and the changed files under `skill/`, then
@@ -125,12 +136,18 @@ Open a new chat with the connector ticked, attach `runs/<month>/products.json`, 
 pip install openpyxl playwright pillow opencc-python-reimplemented
 python -m playwright install chromium
 
-python skill/scripts/check_copy.py      runs/2026-10          # length + audience rules
+python skill/scripts/check_copy.py      runs/2026-10          # length + audience rules (captions count)
 python skill/scripts/build_newsletter.py runs/2026-10          # → runs/2026-10/out/*.html
 python skill/scripts/render_preview.py  runs/2026-10/out/newsletter_2026-10_en.html   # PNG previews
 ```
 
-Edit `runs/<month>/products.json` and rebuild — never hand-edit the generated HTML.
+Local screenshot paths are written relative to the HTML, so the default build stays small and
+previewable. Add `--embed-images` only to send someone a self-contained preview (base64 —
+never commit it). Edit `runs/<month>/products.json` and rebuild — never hand-edit the
+generated HTML.
+
+Working in Claude Code? Just say "read CLAUDE.md" — it holds the project memory (decisions,
+current edition status, context-size rules like never attaching `dist/*.skill` or embedded HTML).
 
 ## 5. Updating the skill
 
@@ -150,6 +167,7 @@ Edit `runs/<month>/products.json` and rebuild — never hand-edit the generated 
 - Card title/subtitle hidden when a banner exists; stamp-style status badge sits inline with feature 01.
 - Section title is "<release month> Product Updates".
 - Visual components: ✓ checks · timeline steps · flow · before/after; grouped cards = filled category tag + title-only rows, no numerals.
+- Feature screenshots from the sheet's 可提供的截图 column: always ask the user first, analyse size/aspect, place by shape inside the feature, centred caption underneath; preview with `--embed-images`, final send uses the GitHub raw URL.
 - Per-edition theme via `edition.theme`; ZH has its own CJK type scale.
 - "di CLI" (no hyphen) accepted on banners; Grok can't draw the hyphen.
 - Hero: mascots always the protagonists, regenerated each edition for the theme.

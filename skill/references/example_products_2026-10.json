@@ -95,6 +95,17 @@
                   "Faster reads",
                   "Consistent with the V4 single-table model"
                 ]
+              },
+              "image": {
+                "src": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Langfuse_pic1.jpg",
+                "alt": "Langfuse project settings: MCP & CLI page recommending DI-CLI",
+                "caption": {
+                  "en": "DI-CLI is the recommended developer entry point",
+                  "zh": "DI-CLI 是推荐的开发者入口"
+                },
+                "source": "sheet 可提供的截图 column, row 5 (Langfuse MCP & CLI page)",
+                "analysis": "1999×861, aspect 2.32 landscape → full text-column width (687px → ~296px tall), placed after the ✓ row of feature 01",
+                "local_copy": "images/langfuse_mcp_cli_page.jpg"
               }
             },
             {
@@ -157,6 +168,17 @@
                   "读取更快",
                   "与 V4 单表模型一致"
                 ]
+              },
+              "image": {
+                "src": "https://raw.githubusercontent.com/Sharon-Tseng/diana_email_banner/main/DI%20Newsletter/October/Langfuse_pic1.jpg",
+                "alt": "Langfuse project settings: MCP & CLI page recommending DI-CLI",
+                "caption": {
+                  "en": "DI-CLI is the recommended developer entry point",
+                  "zh": "DI-CLI 是推荐的开发者入口"
+                },
+                "source": "sheet 可提供的截图 column, row 5 (Langfuse MCP & CLI page)",
+                "analysis": "1999×861, aspect 2.32 landscape → full text-column width (687px → ~296px tall), placed after the ✓ row of feature 01",
+                "local_copy": "images/langfuse_mcp_cli_page.jpg"
               }
             },
             {

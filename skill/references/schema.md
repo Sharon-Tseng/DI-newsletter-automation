@@ -43,6 +43,11 @@ Stage 3 fills `banner.image`, Stage 4 reads everything. Editing this file and re
             { "name": "…", "tag": "For CLI & script users",   // optional kicker: who this is for (omit when layout is grouped)
               "group": "HDFS alerts",          // required when layout is "grouped"
               "desc": "…",
+              "image": {                       // optional screenshot under the feature (see copy_guidelines → Screenshots)
+                "src": "images/langfuse_mcp_cli_page.jpg",  // run-relative path or GitHub raw URL
+                "alt": "…", "caption": { "en": "…", "zh": "…" },
+                "width": null,                 // px; unset = full text-column width
+                "source": "sheet 可提供的截图, row 5", "analysis": "1999×861, 2.32:1 → full width" },
               "bullets": ["…"],                // optional
               "bullets_style": "chips",        // optional: ≤5 short items render as a chip row instead of a list
               "bullets_label": "Improvements include:",   // optional small grey lead-in line above the bullets/chips

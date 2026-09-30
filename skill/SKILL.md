@@ -101,8 +101,9 @@ Rules the builder applies automatically (see references/copy_guidelines.md):
 Do not restyle beyond these knobs without telling the user.
 
 1. `python scripts/build_newsletter.py runs/<YYYY-MM>` → `out/newsletter_<month>_en.html`
-   and `_zh.html`. Add `--embed-images` when the user will open the file locally; without it
-   banner paths stay relative, which is what they want when images are hosted (GitHub raw).
+   and `_zh.html`. Add `--embed-images` when the user will open the file locally or when
+   feature screenshots are still local files; for the final send, screenshots and banners
+   should be GitHub raw URLs and the build run without the flag.
 2. `python scripts/render_preview.py out/newsletter_<month>_en.html` (and zh) and show the
    PNGs. Missing banners render as labelled placeholders so layout review can happen before
    Stage 3 is complete.
@@ -112,6 +113,15 @@ Do not restyle beyond these knobs without telling the user.
 4. Deliver both HTML files with `present_files`. If the previous edition's banners were hosted
    on the `Sharon-Tseng/diana_email_banner` GitHub repo, remind the user to upload this
    month's `banners/` there and swap `banner.image` to the raw URLs before the final build.
+
+## Where things live (GitHub)
+
+Code + skill + runs: `https://github.com/Sharon-Tseng/DI-newsletter-automation` (`skill/`,
+`dist/`, `runs/<YYYY-MM>/`). Banner images: `Sharon-Tseng/diana_email_banner` under
+`DI Newsletter/<Month>/`. At the end of a run, remind the user to commit
+`runs/<month>/` (products.json, products_raw.json, out/*.html, review log) and — if the skill
+changed during the run — the updated `skill/` files plus a re-packaged `dist/*.skill`, then
+re-upload that `.skill` to Claude. The repo README has the step-by-step.
 
 ## Partial requests
 

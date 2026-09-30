@@ -133,6 +133,10 @@ def main(src, tab, run_dir):
                 notes.append(f"{current['name']} row {r}: problem text may be truncated in the sheet — confirm with PIC")
         elif feat in ("/", "-", "—"):
             notes.append(f"{name}: marked '/' — no update this month, skipped")
+        shot = get(row, "screenshot")
+        if shot and shot not in ("/", "-", "—"):
+            current.setdefault("screenshots", []).append({"row": r, "text": shot})
+            notes.append(f"{current['name']} row {r}: screenshot offered in 可提供的截图 — ask the user whether to use it (analyse size, place by shape, caption)")
         for k in ("audience_raw", "status_raw", "entry", "guide", "existing_copy"):
             v = get(row, k.replace("_raw", ""))
             if v and not current[k]:

@@ -19,12 +19,15 @@ TARGET = {"en": 250, "zh": 280}         # comfortable target; 300 is the hard li
 FEATURE_MAX = {"en": 45, "zh": 65}      # per-feature desc: one main sentence + one background sentence
 
 
-def texts(copy):
+def texts(copy, lang="en"):
     parts = [copy.get("title", ""), copy.get("subtitle", ""), copy.get("audience") or ""]
     parts += sorted({f.get("group", "") for f in copy.get("features", []) if f.get("group")})
     for f in copy.get("features", []):
         parts += [f.get("name", ""), f.get("tag", ""), f.get("desc", ""), f.get("example", "")]
         parts += f.get("bullets", []) or []
+        img = f.get("image") or {}
+        cap = img.get("caption")
+        parts.append(cap.get(lang, "") if isinstance(cap, dict) else (cap or ""))
         v = f.get("visual") or {}
         for side in ("before", "after"):
             parts.append((v.get(side) or {}).get("caption", ""))
@@ -58,7 +61,7 @@ def main(run_dir):
                 print(f"[MISSING] {p['id']} has no {lang} copy")
                 failed = True
                 continue
-            n = sum(count(lang, s) for s in texts(copy))
+            n = sum(count(lang, s) for s in texts(copy, lang))
             unit = "words" if lang == "en" else "chars"
             flag = "OK  " if n <= TARGET[lang] else ("LONG" if n <= LIMIT[lang] else "OVER")
             if n > LIMIT[lang]:

@@ -68,3 +68,8 @@ ZH title 16/23 w600, desc 13/20.
 - Descriptions removed (kept in products.json as `desc_source`), titles only, 20/27 Gloock (ZH 17/26 w600).
 - Numerals dropped for grouped cards (`layout_opts.numerals=false` default); marker = 18px accent check disc.
 - Panels keep the filled category tag + 4px accent bar. Final RAM: 41 EN words / 79 ZH chars.
+
+## 2026-09-30 (team) — feature screenshots
+Langfuse 01 gets the MCP & CLI settings screenshot (1999×861) full text-column width, caption
+"DI-CLI is the recommended developer entry point". New rule: sheet screenshots → ask → analyse
+→ place by shape → caption (copy_guidelines → Screenshots).

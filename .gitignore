@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Self-contained previews built with --embed-images (huge base64, never commit)
+*_embedded.html

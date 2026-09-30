@@ -137,8 +137,13 @@ def nowrap_latin(text, lang):
     return "".join(f'<span style="white-space:nowrap;">{esc(pt)}</span>' if i % 2 else esc(pt) for i, pt in enumerate(parts))
 
 
+OUT_DIR = None   # set by main(); used to make local image paths relative to the HTML file
+
+
 def resolve_img(run_dir, ref, embed):
-    """Return a src value for an image reference (URL, or run-relative path)."""
+    """Return a src value for an image reference (URL, or run-relative path).
+    Local files are referenced relative to the output HTML (small files, previewable); with
+    --embed-images they are inlined as base64 (self-contained but large — never commit those)."""
     if not ref:
         return None
     if ref.startswith("http://") or ref.startswith("https://"):
@@ -147,7 +152,7 @@ def resolve_img(run_dir, ref, embed):
     if not os.path.exists(path):
         return None
     if not embed:
-        return ref
+        return os.path.relpath(path, OUT_DIR) if OUT_DIR else ref
     mime = mimetypes.guess_type(path)[0] or "image/png"
     with open(path, "rb") as f:
         return f"data:{mime};base64,{base64.b64encode(f.read()).decode()}"
@@ -216,7 +221,7 @@ def stamp(text, color, lang="en"):
     )
 
 
-def feature_rows(features, lang, stamp_html=""):
+def feature_rows(features, lang, stamp_html="", run_dir=".", embed=False):
     rows = []
     n = len(features)
     for i, f in enumerate(features):
@@ -227,6 +232,7 @@ def feature_rows(features, lang, stamp_html=""):
         body_pad = ("0" if first else "24px") + " 0 " + ("0" if last else "24px")
         border = "" if last else f"border-bottom:1px solid {RULE};"
         inner = ""
+        head_end_marker = None
         if f.get("tag"):
             inner += (
                 f'<p style="margin:0 0 5px;font-family:{font(lang)};{T(lang,"kicker")}color:{BLUE};">{esc(f["tag"])}</p>'
@@ -236,6 +242,7 @@ def feature_rows(features, lang, stamp_html=""):
         )
         if f.get("desc"):
             inner += f'<p style="margin:0;font-family:{font(lang)};{T(lang,"body")}color:{MUTED};">{esc(f["desc"])}</p>'
+        head_end_marker = len(inner)   # everything after this is full-width tail content
         if f.get("bullets") and f.get("bullets_label"):
             inner += (
                 f'<p style="margin:12px 0 0;font-family:{font(lang)};font-size:13px;line-height:18px;color:{MUTED};">{esc(f["bullets_label"])}</p>'
@@ -263,6 +270,8 @@ def feature_rows(features, lang, stamp_html=""):
             inner += checks_block(f["visual"], lang)
         if f.get("visual") and f["visual"].get("type") == "steps":
             inner += steps_block(f["visual"], lang)
+        if f.get("image"):
+            inner += image_block(f["image"], lang, run_dir, embed)
         if f.get("example"):
             label = f.get("example_label") or t(lang, "example")
             inner += (
@@ -274,9 +283,11 @@ def feature_rows(features, lang, stamp_html=""):
                 f'</td></tr></table>'
             )
         if first and stamp_html:
+            head, tail = inner[:head_end_marker], inner[head_end_marker:]
             inner = (
                 f'<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;"><tr>'
-                f'<td valign="top">{inner}</td><td width="170" align="right" valign="top" style="width:170px;padding:0 8px 0 12px;">{stamp_html}</td></tr></table>'
+                f'<td valign="top">{head}</td><td width="170" align="right" valign="top" style="width:170px;padding:0 8px 0 12px;">{stamp_html}</td></tr></table>'
+                + tail   # checks / visuals / bullets / images span the full text column, edge to stamp edge
             )
         rows.append(
             f'<tr><td valign="top" width="52" style="width:52px;min-width:52px;padding:{num_pad};font-family:{SERIF};font-size:29px;line-height:32px;color:{color};">{num}</td>'
@@ -531,6 +542,29 @@ def grouped_features(features, lang, stamp_html="", layout_opts=None):
     return "".join(out)
 
 
+def image_block(img, lang, run_dir, embed):
+    """Feature screenshot: full width of the text column, thin border, rounded, caption below.
+    img = {"src": run-relative path or URL, "alt": str, "caption": str|{"en","zh"}, "width": px (optional)}"""
+    src = resolve_img(run_dir, img.get("src"), embed)
+    if not src:
+        return ""
+    cap = img.get("caption") or ""
+    if isinstance(cap, dict):
+        cap = cap.get(lang, "")
+    w = img.get("width")
+    wattr = f' width="{w}"' if w else ""
+    wstyle = f"width:{w}px;max-width:100%;" if w else "width:100%;"
+    cap_t = "font-size:12px;line-height:18px;letter-spacing:0;" if lang == "zh" else "font-size:12px;line-height:18px;letter-spacing:.2px;"
+    html = (
+        f'<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:14px;"><tr>'
+        f'<td align="{"center" if w else "left"}" style="padding:0;">'
+        f'<img src="{esc(src)}"{wattr} alt="{esc(img.get("alt",""))}" style="display:block;{wstyle}height:auto;border:1px solid {EXAMPLE_BORDER};border-radius:8px;">'
+        + (f'<p style="margin:7px 0 0;font-family:{font(lang)};{cap_t}color:{MUTED};text-align:center;">{esc(cap)}</p>' if cap else "")
+        + '</td></tr></table>'
+    )
+    return html
+
+
 def buttons_block(buttons, lang):
     if not buttons:
         return ""
@@ -595,7 +629,7 @@ def product_card(product, lang, run_dir, embed):
 <tr><td class="card-pad" style="padding:{'42px' if show_header else '28px'} 44px 40px;font-family:{font(lang)};background:{CARD_BG};">
   {header_block(copy, lang, show_header, audience_html, status_text, status_bg)}
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="width:100%;border-collapse:collapse;margin-top:{'23px' if show_header else '0'};">
-    {grouped_features(copy['features'], lang, '' if show_header else stamp(status_text, status_bg, lang), copy.get('layout_opts')) if copy.get('layout') == 'grouped' else feature_rows(copy['features'], lang, '' if show_header else stamp(status_text, status_bg, lang))}
+    {grouped_features(copy['features'], lang, '' if show_header else stamp(status_text, status_bg, lang), copy.get('layout_opts')) if copy.get('layout') == 'grouped' else feature_rows(copy['features'], lang, '' if show_header else stamp(status_text, status_bg, lang), run_dir, embed)}
   </table>
   {buttons_block(product.get('buttons'), lang)}
 </td></tr>
@@ -730,6 +764,8 @@ def main():
         data = json.load(f)
     out_dir = args.out or os.path.join(run_dir, "out")
     os.makedirs(out_dir, exist_ok=True)
+    global OUT_DIR
+    OUT_DIR = os.path.abspath(out_dir)
     month = data["edition"]["month"]
     langs = ["en", "zh"] if args.lang == "all" else [args.lang]
     for lang in langs:
